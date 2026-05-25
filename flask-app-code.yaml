@@ -56,35 +56,61 @@ data:
         if "httpie" in u: return "httpie"
         return "browser/other"
 
-    # ── Box builder (no f-strings — safe for template engines) ───
-    W = 58
+    # ── Box builder ───────────────────────────────────────────────
+    # W = total inner width (between the | pipes)
+    W   = 72
+    KW  = 12   # key column width
+    # value column = W - KW - 4  (for "| " + ": " + " |")
+    VW  = W - KW - 4
 
-    def pad(text, width):
-        return str(text)[:width].ljust(width)
+    def row(key, value):
+        # truncate value if still too long
+        v = str(value)
+        if len(v) > VW:
+            v = v[:VW - 3] + "..."
+        return "| " + key.ljust(KW) + ": " + v.ljust(VW) + " |"
+
+    def hline(ch="-"):
+        return "+" + ch * (W + 2) + "+"
 
     def request_box(tool, method, path, ip, ua, ts, body=None):
         emoji = TOOL_EMOJI.get(tool, "?")
         label = TOOL_LABELS.get(tool, tool.upper())
-        top   = "+" + "=" * W + "+"
-        sep   = "+" + "-" * W + "+"
-        bot   = "+" + "=" * W + "+"
         title = "  INCOMING REQUEST   " + emoji + " " + label
 
-        rows = [
+        lines = [
             "",
-            top,
-            "| " + pad(title, W - 1) + "|",
-            sep,
-            "| " + pad("timestamp",  14) + " " + pad(ts,        W - 17) + "|",
-            "| " + pad("method",     14) + " " + pad(method,    W - 17) + "|",
-            "| " + pad("path",       14) + " " + pad(path,      W - 17) + "|",
-            "| " + pad("client ip",  14) + " " + pad(ip,        W - 17) + "|",
-            "| " + pad("user-agent", 14) + " " + pad(ua,        W - 17) + "|",
+            hline("="),
+            "| " + title.ljust(W) + "  |",
+            hline("-"),
+            row("timestamp",  ts),
+            row("method",     method),
+            row("path",       path),
+            row("client ip",  ip),
+            row("user-agent", ua),
         ]
         if body:
-            rows.append("| " + pad("body", 14) + " " + pad(body, W - 17) + "|")
-        rows += [bot, ""]
-        return "\n".join(rows)
+            lines.append(row("body", body))
+        lines += [hline("="), ""]
+        return "\n".join(lines)
+
+    def response_box(tool, method, full_path, ip, svc_name, now):
+        emoji = TOOL_EMOJI.get(tool, "?")
+        label = TOOL_LABELS.get(tool, tool.upper())
+        title = "  REQUEST LOGGER  |  " + emoji + " " + label
+
+        lines = [
+            hline("="),
+            "| " + title.ljust(W) + "  |",
+            hline("="),
+            row("sender ip",  ip),
+            row("method",     method),
+            row("path",       full_path),
+            row("receiver",   svc_name),
+            row("timestamp",  now),
+            hline("="),
+        ]
+        return "\n".join(lines) + "\n"
 
     def summary_line(tool, method, path, ip, svc, code):
         emoji = TOOL_EMOJI.get(tool, "?")
@@ -98,22 +124,6 @@ data:
             + "  HTTP " + str(code)
         )
 
-    def response_body(tool, method, full_path, ip, svc_name, now):
-        emoji = TOOL_EMOJI.get(tool, "?")
-        label = TOOL_LABELS.get(tool, tool.upper())
-        sep   = "+" + "=" * 48 + "+"
-        return (
-            sep + "\n"
-            + "| " + pad("REQUEST LOGGER  |  " + emoji + " " + label, 47) + "|\n"
-            + sep + "\n"
-            + "| " + pad("sender ip",  12) + ": " + pad(ip,        32) + "|\n"
-            + "| " + pad("method",     12) + ": " + pad(method,    32) + "|\n"
-            + "| " + pad("path",       12) + ": " + pad(full_path, 32) + "|\n"
-            + "| " + pad("receiver",   12) + ": " + pad(svc_name,  32) + "|\n"
-            + "| " + pad("timestamp",  12) + ": " + pad(now,       32) + "|\n"
-            + sep + "\n"
-        )
-
     # ── Routes ────────────────────────────────────────────────────
     @app.route("/", defaults={"path": ""}, methods=["GET","POST","PUT","DELETE","PATCH"])
     @app.route("/<path:path>",             methods=["GET","POST","PUT","DELETE","PATCH"])
@@ -124,34 +134,31 @@ data:
         ip        = request.headers.get("X-Forwarded-For", request.remote_addr)
         full_path = "/" + path if path else "/"
         body      = request.get_data(as_text=True) or None
-        pod_name  = os.getenv("POD_NAME",      "request-logger")
-        pod_ns    = os.getenv("POD_NAMESPACE",  "logger")
+        pod_name  = os.getenv("POD_NAME",     "request-logger")
+        pod_ns    = os.getenv("POD_NAMESPACE", "logger")
         svc_name  = "request-logger-svc." + pod_ns + ".svc.cluster.local"
 
-        # request box
+        # request box in logs
         box = request_box(tool, request.method, full_path, ip, ua, now, body)
         if tool in ("curl", "wget"):
             logger.warning(box)
         else:
             logger.info(box)
 
-        # receiver line
+        # receiver + summary in logs
         logger.info(
             "  RECEIVER  pod=" + pod_name
             + "  ns=" + pod_ns
             + "  svc=" + svc_name
         )
-
-        # headers
         logger.debug("  Headers:")
         for k, v in request.headers:
             logger.debug("    " + k + ": " + v)
-
-        # summary
         logger.info(summary_line(tool, request.method, full_path, ip, svc_name, 200))
         logger.info("")
 
-        resp = response_body(tool, request.method, full_path, ip, svc_name, now)
+        # curl-readable response body
+        resp = response_box(tool, request.method, full_path, ip, svc_name, now)
         return resp, 200, {"Content-Type": "text/plain"}
 
     @app.route("/health")
@@ -160,13 +167,13 @@ data:
         return "OK", 200
 
     if __name__ == "__main__":
-        pod = os.getenv("POD_NAME",     "request-logger")
-        ns  = os.getenv("POD_NAMESPACE","logger")
+        pod = os.getenv("POD_NAME",      "request-logger")
+        ns  = os.getenv("POD_NAMESPACE", "logger")
         logger.info("")
-        logger.info("  +======================================================+")
-        logger.info("  | REQUEST LOGGER POD  --  STARTED                      |")
-        logger.info("  | pod=" + pod + "  ns=" + ns)
-        logger.info("  | listening on 0.0.0.0:5000                            |")
-        logger.info("  +======================================================+")
+        logger.info("  " + "+" + "=" * 54 + "+")
+        logger.info("  | " + "REQUEST LOGGER POD  --  STARTED".ljust(53) + "|")
+        logger.info("  | " + ("pod=" + pod + "  ns=" + ns).ljust(53) + "|")
+        logger.info("  | " + "listening on 0.0.0.0:5000".ljust(53) + "|")
+        logger.info("  " + "+" + "=" * 54 + "+")
         logger.info("")
         app.run(host="0.0.0.0", port=5000)
