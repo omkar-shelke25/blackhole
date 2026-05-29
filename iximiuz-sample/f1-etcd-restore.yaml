@@ -1,0 +1,560 @@
+---
+# ──────────────────────────────────────────────
+#  ConfigMap — F1-themed index.html
+# ──────────────────────────────────────────────
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html-config
+  labels:
+    app: nginx-f1
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>F1 Racing — Championship Hub</title>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+          --red:    #E10600;
+          --dark:   #15151E;
+          --card:   #1E1E2E;
+          --gold:   #FFD700;
+          --silver: #C0C0C0;
+          --text:   #F5F5F5;
+          --muted:  #9CA3AF;
+          --accent: #E10600;
+        }
+
+        body {
+          background: var(--dark);
+          color: var(--text);
+          font-family: 'Segoe UI', system-ui, sans-serif;
+          min-height: 100vh;
+        }
+
+        /* ── Header ── */
+        header {
+          background: var(--red);
+          padding: 0 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 64px;
+          box-shadow: 0 4px 24px rgba(225,6,0,.5);
+        }
+
+        header .logo {
+          font-size: 2rem;
+          font-weight: 900;
+          letter-spacing: -1px;
+          font-style: italic;
+          color: #fff;
+        }
+
+        header .logo span { color: var(--gold); }
+
+        header nav a {
+          color: rgba(255,255,255,.85);
+          text-decoration: none;
+          margin-left: 1.5rem;
+          font-size: .9rem;
+          font-weight: 600;
+          letter-spacing: .05em;
+          text-transform: uppercase;
+          transition: color .2s;
+        }
+
+        header nav a:hover { color: var(--gold); }
+
+        /* ── Hero ── */
+        .hero {
+          position: relative;
+          background:
+            linear-gradient(135deg, rgba(21,21,30,.92) 40%, rgba(225,6,0,.25)),
+            repeating-linear-gradient(
+              -45deg,
+              transparent,
+              transparent 40px,
+              rgba(225,6,0,.04) 40px,
+              rgba(225,6,0,.04) 42px
+            );
+          padding: 5rem 2rem;
+          text-align: center;
+          overflow: hidden;
+        }
+
+        .hero::before {
+          content: '🏁';
+          position: absolute;
+          font-size: 14rem;
+          opacity: .04;
+          top: -2rem;
+          left: -2rem;
+          pointer-events: none;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.5rem, 7vw, 5rem);
+          font-weight: 900;
+          font-style: italic;
+          letter-spacing: -2px;
+          line-height: 1;
+          text-transform: uppercase;
+        }
+
+        .hero h1 span { color: var(--red); }
+
+        .hero p {
+          margin-top: 1rem;
+          font-size: 1.15rem;
+          color: var(--muted);
+          max-width: 540px;
+          margin-inline: auto;
+        }
+
+        .hero .cta {
+          display: inline-block;
+          margin-top: 2rem;
+          padding: .8rem 2.2rem;
+          background: var(--red);
+          color: #fff;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .1em;
+          border-radius: 4px;
+          text-decoration: none;
+          font-size: .95rem;
+          transition: background .2s, transform .15s;
+        }
+
+        .hero .cta:hover { background: #b50400; transform: translateY(-2px); }
+
+        /* ── Section ── */
+        section { padding: 3.5rem 2rem; max-width: 1100px; margin-inline: auto; }
+
+        section h2 {
+          font-size: 1.75rem;
+          font-weight: 800;
+          font-style: italic;
+          text-transform: uppercase;
+          letter-spacing: -0.5px;
+          border-left: 4px solid var(--red);
+          padding-left: .75rem;
+          margin-bottom: 2rem;
+        }
+
+        /* ── Driver Cards ── */
+        .driver-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.25rem;
+        }
+
+        .driver-card {
+          background: var(--card);
+          border-radius: 10px;
+          padding: 1.5rem 1.25rem;
+          border-top: 4px solid var(--team-color, var(--red));
+          position: relative;
+          overflow: hidden;
+          transition: transform .2s, box-shadow .2s;
+        }
+
+        .driver-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px rgba(0,0,0,.5);
+        }
+
+        .driver-card .number {
+          font-size: 3.5rem;
+          font-weight: 900;
+          font-style: italic;
+          opacity: .12;
+          position: absolute;
+          right: .5rem;
+          top: .25rem;
+          line-height: 1;
+          color: var(--team-color, var(--red));
+        }
+
+        .driver-card .team-tag {
+          font-size: .7rem;
+          font-weight: 700;
+          letter-spacing: .1em;
+          text-transform: uppercase;
+          color: var(--team-color, var(--red));
+          margin-bottom: .4rem;
+        }
+
+        .driver-card h3 { font-size: 1.15rem; font-weight: 800; }
+
+        .driver-card .nat {
+          font-size: .8rem;
+          color: var(--muted);
+          margin-top: .25rem;
+        }
+
+        .driver-card .pts {
+          margin-top: .75rem;
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: var(--gold);
+        }
+
+        .driver-card .pts-label {
+          font-size: .7rem;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: .08em;
+        }
+
+        /* ── Standings Table ── */
+        .standings-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: .95rem;
+        }
+
+        .standings-table th {
+          text-align: left;
+          padding: .65rem 1rem;
+          font-size: .72rem;
+          letter-spacing: .1em;
+          text-transform: uppercase;
+          color: var(--muted);
+          border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .standings-table td {
+          padding: .8rem 1rem;
+          border-bottom: 1px solid rgba(255,255,255,.05);
+          vertical-align: middle;
+        }
+
+        .standings-table tr:hover td { background: rgba(255,255,255,.03); }
+
+        .standings-table .pos {
+          font-weight: 900;
+          font-size: 1.1rem;
+          width: 40px;
+        }
+
+        .pos-1 { color: var(--gold); }
+        .pos-2 { color: var(--silver); }
+        .pos-3 { color: #cd7f32; }
+
+        .standings-table .points { font-weight: 700; color: var(--gold); }
+
+        .team-dot {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-right: 6px;
+          vertical-align: middle;
+        }
+
+        /* ── Race Calendar ── */
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1rem;
+        }
+
+        .race-card {
+          background: var(--card);
+          border-radius: 8px;
+          padding: 1.25rem;
+          display: flex;
+          gap: 1rem;
+          align-items: flex-start;
+          border: 1px solid rgba(255,255,255,.06);
+          transition: border-color .2s;
+        }
+
+        .race-card:hover { border-color: rgba(225,6,0,.5); }
+
+        .race-card .round {
+          background: var(--red);
+          color: #fff;
+          font-weight: 900;
+          font-size: .75rem;
+          padding: .25rem .6rem;
+          border-radius: 4px;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        .race-card .race-info h4 { font-size: 1rem; font-weight: 700; }
+
+        .race-card .race-info .circuit {
+          font-size: .8rem;
+          color: var(--muted);
+          margin-top: .2rem;
+        }
+
+        .race-card .race-info .date {
+          font-size: .78rem;
+          color: var(--red);
+          font-weight: 600;
+          margin-top: .4rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+          background: rgba(0,0,0,.4);
+          text-align: center;
+          padding: 2rem;
+          color: var(--muted);
+          font-size: .8rem;
+          border-top: 1px solid rgba(255,255,255,.06);
+          margin-top: 2rem;
+        }
+
+        footer span { color: var(--red); }
+      </style>
+    </head>
+    <body>
+
+      <!-- Header -->
+      <header>
+        <div class="logo">F<span>1</span> HUB</div>
+        <nav>
+          <a href="#">Drivers</a>
+          <a href="#">Teams</a>
+          <a href="#">Calendar</a>
+          <a href="#">Results</a>
+        </nav>
+      </header>
+
+      <!-- Hero -->
+      <div class="hero">
+        <h1>Every Race.<br/><span>Every Moment.</span></h1>
+        <p>Your central destination for Formula 1 standings, race schedules, and driver statistics.</p>
+        <a href="#standings" class="cta">View Standings</a>
+      </div>
+
+      <!-- Driver Spotlight -->
+      <section>
+        <h2>Driver Spotlight</h2>
+        <div class="driver-grid">
+
+          <div class="driver-card" style="--team-color:#3671C6">
+            <div class="number">1</div>
+            <div class="team-tag">Red Bull Racing</div>
+            <h3>Max Verstappen</h3>
+            <div class="nat">🇳🇱 Netherlands</div>
+            <div class="pts">429</div>
+            <div class="pts-label">Championship Points</div>
+          </div>
+
+          <div class="driver-card" style="--team-color:#E8002D">
+            <div class="number">16</div>
+            <div class="team-tag">Scuderia Ferrari</div>
+            <h3>Charles Leclerc</h3>
+            <div class="nat">🇲🇨 Monaco</div>
+            <div class="pts">307</div>
+            <div class="pts-label">Championship Points</div>
+          </div>
+
+          <div class="driver-card" style="--team-color:#27F4D2">
+            <div class="number">63</div>
+            <div class="team-tag">Mercedes AMG</div>
+            <h3>George Russell</h3>
+            <div class="nat">🇬🇧 United Kingdom</div>
+            <div class="pts">275</div>
+            <div class="pts-label">Championship Points</div>
+          </div>
+
+          <div class="driver-card" style="--team-color:#FF8000">
+            <div class="number">4</div>
+            <div class="team-tag">McLaren F1 Team</div>
+            <h3>Lando Norris</h3>
+            <div class="nat">🇬🇧 United Kingdom</div>
+            <div class="pts">374</div>
+            <div class="pts-label">Championship Points</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Standings -->
+      <section id="standings">
+        <h2>Constructor Standings</h2>
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Team</th>
+              <th>Points</th>
+              <th>Wins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pos pos-1">1</td>
+              <td><span class="team-dot" style="background:#3671C6"></span>Red Bull Racing</td>
+              <td class="points">860</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td class="pos pos-2">2</td>
+              <td><span class="team-dot" style="background:#FF8000"></span>McLaren F1 Team</td>
+              <td class="points">648</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="pos pos-3">3</td>
+              <td><span class="team-dot" style="background:#E8002D"></span>Scuderia Ferrari</td>
+              <td class="points">619</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td class="pos">4</td>
+              <td><span class="team-dot" style="background:#27F4D2"></span>Mercedes AMG</td>
+              <td class="points">476</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td class="pos">5</td>
+              <td><span class="team-dot" style="background:#64C4FF"></span>Aston Martin</td>
+              <td class="points">94</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Race Calendar -->
+      <section>
+        <h2>Upcoming Races</h2>
+        <div class="calendar-grid">
+
+          <div class="race-card">
+            <div class="round">R20</div>
+            <div class="race-info">
+              <h4>United States Grand Prix</h4>
+              <div class="circuit">Circuit of the Americas, Austin</div>
+              <div class="date">October 20, 2024</div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="round">R21</div>
+            <div class="race-info">
+              <h4>Mexico City Grand Prix</h4>
+              <div class="circuit">Autodromo Hermanos Rodriguez</div>
+              <div class="date">October 27, 2024</div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="round">R22</div>
+            <div class="race-info">
+              <h4>São Paulo Grand Prix</h4>
+              <div class="circuit">Autodromo José Carlos Pace</div>
+              <div class="date">November 3, 2024</div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="round">R23</div>
+            <div class="race-info">
+              <h4>Abu Dhabi Grand Prix</h4>
+              <div class="circuit">Yas Marina Circuit</div>
+              <div class="date">December 8, 2024</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>F1 Hub &mdash; Built with <span>❤</span> for motorsport fans. Served by nginx on Kubernetes.</p>
+      </footer>
+
+    </body>
+    </html>
+
+---
+# ──────────────────────────────────────────────
+#  Deployment
+# ──────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-f1
+  labels:
+    app: nginx-f1
+    env: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-f1
+  template:
+    metadata:
+      labels:
+        app: nginx-f1
+        env: development
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+          volumeMounts:
+            - name: html-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html          # mount only the file, not the entire dir
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: html-volume
+          configMap:
+            name: nginx-html-config    # references the ConfigMap above
+
+---
+# ──────────────────────────────────────────────
+#  Service  (ClusterIP — expose via Ingress or NodePort as needed)
+# ──────────────────────────────────────────────
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-f1-svc
+  labels:
+    app: nginx-f1
+spec:
+  selector:
+    app: nginx-f1
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 32222
+  type: NodePort
