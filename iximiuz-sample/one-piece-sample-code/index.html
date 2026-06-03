@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Piece — Grand Line Encyclopedia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #fdf8f0;
+  --cream2: #f7f0e4;
+  --cream3: #efe5d3;
+  --parchment: #e8d9c0;
+  --gold: #c8860a;
+  --gold-light: #f0b429;
+  --gold-pale: #fdf3dc;
+  --red: #b52a2a;
+  --red-light: #f9eaea;
+  --navy: #1a2340;
+  --navy-mid: #2e3f6e;
+  --blue: #1a4a8a;
+  --blue-light: #e8f0fb;
+  --teal: #127a6e;
+  --teal-light: #e4f5f3;
+  --purple: #5a3e8a;
+  --purple-light: #f0ebfa;
+  --text: #1a1208;
+  --text2: #3d2e18;
+  --text3: #7a6545;
+  --border: rgba(200,134,10,0.2);
+  --border2: rgba(200,134,10,0.12);
+  --shadow: 0 4px 24px rgba(26,18,8,0.10);
+  --shadow-sm: 0 2px 8px rgba(26,18,8,0.07);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* =========== NAV =========== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253,248,240,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  gap: 0;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0 1rem;
+  height: 56px;
+  line-height: 56px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* =========== HERO =========== */
+.hero {
+  background:
+    linear-gradient(160deg, #fdf8f0 0%, #f7eed8 40%, #fbeeca 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(240,180,41,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '⚓';
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 220px;
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px; height: 2px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 0.95;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text3);
+  margin: 1rem 0 1.75rem;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.pill {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text2);
+  letter-spacing: 0.04em;
+}
+
+.pill.red { background: var(--red-light); border-color: rgba(181,42,42,0.2); color: var(--red); }
+.pill.gold { background: var(--gold-pale); border-color: rgba(200,134,10,0.3); color: var(--gold); }
+.pill.blue { background: var(--blue-light); border-color: rgba(26,74,138,0.2); color: var(--blue); }
+
+/* HERO INFO CARD */
+.hero-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border2);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border2);
+  gap: 0.5rem;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-key {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.info-val {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* =========== LAYOUT =========== */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =========== SECTION =========== */
+.section { padding: 4.5rem 0; }
+.section + .section { border-top: 1px solid var(--border2); }
+
+.section-header { margin-bottom: 2.5rem; }
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.section-sub {
+  margin-top: 0.6rem;
+  color: var(--text3);
+  font-size: 0.95rem;
+  max-width: 600px;
+}
+
+/* =========== STATS =========== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.stat-icon { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.stat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* =========== SYNOPSIS =========== */
+.synopsis-wrap {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.synopsis-text {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.synopsis-text p { color: var(--text2); margin-bottom: 1rem; }
+.synopsis-text p:last-child { margin-bottom: 0; }
+.synopsis-text strong { color: var(--navy); font-weight: 600; }
+.synopsis-text em { color: var(--gold); font-style: italic; }
+
+.quick-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fact-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.fact-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  margin-bottom: 0.2rem;
+}
+
+.fact-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fact-value.gold { color: var(--gold); }
+.fact-value.red { color: var(--red); }
+
+/* =========== CHARACTERS =========== */
+.char-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-box::before {
+  content: '🔍';
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem 1rem 0.6rem 2.4rem;
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s;
+}
+
+.search-input:focus { border-color: var(--gold); }
+.search-input::placeholder { color: var(--text3); }
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+.tab-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+.chars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.char-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.char-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.char-card.hidden { display: none; }
+
+.char-banner {
+  height: 6px;
+}
+
+.char-body { padding: 1.25rem; }
+
+.char-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.char-ava {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+
+.char-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.char-alias {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-top: 0.1rem;
+}
+
+.char-role {
+  font-size: 0.82rem;
+  color: var(--text3);
+  margin-bottom: 0.75rem;
+}
+
+.char-details {
+  background: var(--cream2);
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.char-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.cd-key {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.cd-val {
+  font-size: 0.8rem;
+  color: var(--text2);
+  font-weight: 600;
+  text-align: right;
+}
+
+.cd-val.red { color: var(--red); }
+.cd-val.purple { color: var(--purple); }
+.cd-val.teal { color: var(--teal); }
+.cd-val.gold { color: var(--gold); }
+
+.char-bio {
+  margin-top: 0.85rem;
+  font-size: 0.83rem;
+  color: var(--text3);
+  line-height: 1.6;
+}
+
+/* =========== ARCS =========== */
+.arcs-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.arc-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.arc-card:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+
+.arc-num-block {
+  text-align: center;
+}
+
+.arc-saga-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--parchment);
+  line-height: 1;
+  display: block;
+}
+
+.arc-saga-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.arc-saga-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.arc-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.arc-desc { font-size: 0.9rem; color: var(--text3); line-height: 1.65; }
+
+.arc-highlights {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.arc-tag {
+  background: var(--cream2);
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  padding: 0.15rem 0.65rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+.arc-meta {
+  text-align: right;
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.arc-eps-val {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+  display: block;
+}
+
+.arc-eps-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.arc-rating {
+  display: flex;
+  gap: 1px;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.star { color: var(--gold-light); font-size: 0.85rem; }
+.star.empty { color: var(--parchment); }
+
+/* =========== DEVIL FRUITS =========== */
+.fruits-intro {
+  background: linear-gradient(135deg, var(--purple-light), #f7f0fe);
+  border: 1px solid rgba(90,62,138,0.15);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.fruit-type-block {
+  flex: 1;
+  border-right: 1px solid rgba(90,62,138,0.15);
+  padding-right: 1.5rem;
+}
+
+.fruit-type-block:last-child { border-right: none; padding-right: 0; }
+
+.ftype-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--purple);
+  margin-bottom: 0.25rem;
+}
+
+.ftype-desc { font-size: 0.83rem; color: var(--text3); }
+
+.fruits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+
+.fruit-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.fruit-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.fruit-icon-wrap {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.fruit-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.fruit-type-badge {
+  display: inline-block;
+  border-radius: 100px;
+  padding: 0.15rem 0.6rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.badge-paramecia { background: var(--blue-light); color: var(--blue); }
+.badge-logia { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(200,134,10,0.2); }
+.badge-zoan { background: var(--teal-light); color: var(--teal); }
+.badge-mythical { background: var(--purple-light); color: var(--purple); }
+
+.fruit-user-line {
+  font-size: 0.82rem;
+  color: var(--text2);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.fruit-ability { font-size: 0.8rem; color: var(--text3); line-height: 1.55; }
+
+/* =========== HAKI =========== */
+.haki-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.haki-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.haki-card::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  opacity: 0.06;
+}
+
+.haki-armament::after { background: var(--navy); }
+.haki-observation::after { background: var(--teal); }
+.haki-conqueror::after { background: var(--gold); }
+
+.haki-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+.haki-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.haki-jp {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.haki-desc { font-size: 0.87rem; color: var(--text3); line-height: 1.65; }
+
+.haki-masters { margin-top: 0.9rem; }
+
+.haki-masters-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  margin-bottom: 0.4rem;
+}
+
+.haki-user-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.haki-user-tag {
+  background: var(--cream2);
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text2);
+}
+
+/* =========== WORLD LORE =========== */
+.lore-tabs {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.lore-tab {
+  flex: 1;
+  padding: 0.8rem 0.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+.lore-tab:last-child { border-right: none; }
+.lore-tab.active { background: var(--navy); color: white; }
+.lore-tab:hover:not(.active) { background: var(--cream2); }
+
+.lore-panel { display: none; }
+.lore-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+
+.lore-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.lore-card-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lore-card-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.lore-card-desc { font-size: 0.83rem; color: var(--text3); line-height: 1.6; }
+
+/* =========== FILMS =========== */
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.film-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s;
+  text-align: center;
+}
+
+.film-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.film-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text3);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.film-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.film-note { font-size: 0.78rem; color: var(--text3); }
+
+.film-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+
+/* =========== THEMES =========== */
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.theme-card {
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid transparent;
+}
+
+.tc-freedom { background: linear-gradient(135deg, #fff8e7, #ffefc8); border-color: rgba(200,134,10,0.2); }
+.tc-friendship { background: linear-gradient(135deg, #fff0f0, #ffe0e0); border-color: rgba(181,42,42,0.15); }
+.tc-justice { background: linear-gradient(135deg, #eff5ff, #dceeff); border-color: rgba(26,74,138,0.15); }
+.tc-dreams { background: linear-gradient(135deg, #f0faf0, #d9f5d9); border-color: rgba(18,122,110,0.15); }
+.tc-identity { background: linear-gradient(135deg, #f8f0ff, #eddeff); border-color: rgba(90,62,138,0.15); }
+.tc-history { background: linear-gradient(135deg, #fff8f0, #ffe8d0); border-color: rgba(180,80,20,0.15); }
+
+.theme-icon { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
+.theme-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.theme-desc { font-size: 0.85rem; color: var(--text3); line-height: 1.6; }
+
+/* =========== PRODUCTION =========== */
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.prod-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.prod-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prod-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.prod-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border2);
+  font-size: 0.87rem;
+}
+
+.prod-item:last-child { border-bottom: none; }
+.prod-item-key { color: var(--text3); }
+.prod-item-val { font-weight: 600; color: var(--navy); text-align: right; font-size: 0.85rem; }
+
+/* =========== FOOTER =========== */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 2;
+}
+
+footer strong { color: rgba(255,255,255,0.85); }
+
+/* =========== RESPONSIVE =========== */
+@media (max-width: 800px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  .haki-grid { grid-template-columns: 1fr; }
+  .prod-grid { grid-template-columns: 1fr; }
+  .arc-card { grid-template-columns: 1fr; }
+  .arc-num-block { display: none; }
+  .arc-meta { text-align: left; }
+  .synopsis-wrap { grid-template-columns: 1fr; }
+  .fruits-intro { flex-direction: column; }
+  .fruit-type-block { border-right: none; border-bottom: 1px solid rgba(90,62,138,0.15); padding-right: 0; padding-bottom: 1rem; }
+  .nav-links { display: none; }
+}
+
+/* =========== ANIMATIONS =========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">⚓ ONE PIECE</a>
+    <ul class="nav-links">
+      <li><a href="#synopsis">Synopsis</a></li>
+      <li><a href="#characters">Crew & Rivals</a></li>
+      <li><a href="#arcs">Story Arcs</a></li>
+      <li><a href="#devil-fruits">Devil Fruits</a></li>
+      <li><a href="#haki">Haki</a></li>
+      <li><a href="#world">World</a></li>
+      <li><a href="#films">Films</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner container">
+    <div>
+      <div class="hero-eyebrow">Grand Line Encyclopedia</div>
+      <h1 class="hero-title">ONE<br><span>PIECE</span></h1>
+      <p class="hero-tagline">"I'm going to be King of the Pirates!" — Monkey D. Luffy</p>
+      <p class="hero-desc">The greatest treasure ever left behind by the Pirate King Gol D. Roger has been waiting at the end of the Grand Line for 25 years. One boy's dream set an era in motion. This is the world of One Piece — one of the best-selling manga series of all time, a masterclass in adventure storytelling, and a cultural phenomenon spanning nearly three decades.</p>
+      <div class="hero-pills">
+        <span class="pill gold">📖 Manga 1997–Present</span>
+        <span class="pill red">🎌 Anime 1999–Present</span>
+        <span class="pill blue">🏆 Best-Selling Manga Ever</span>
+        <span class="pill">⭐ Avg. Rating: 9.0/10</span>
+        <span class="pill">🎥 15 Films</span>
+        <span class="pill">🌍 Global Phenomenon</span>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="hero-card-title">📋 Series at a Glance</div>
+      <div class="info-row"><span class="info-key">Author</span><span class="info-val">Eiichiro Oda</span></div>
+      <div class="info-row"><span class="info-key">Publisher</span><span class="info-val">Shueisha / Viz Media</span></div>
+      <div class="info-row"><span class="info-key">Magazine</span><span class="info-val">Weekly Shōnen Jump</span></div>
+      <div class="info-row"><span class="info-key">Manga Start</span><span class="info-val">July 22, 1997</span></div>
+      <div class="info-row"><span class="info-key">Anime Start</span><span class="info-val">October 20, 1999</span></div>
+      <div class="info-row"><span class="info-key">Studio</span><span class="info-val">Toei Animation</span></div>
+      <div class="info-row"><span class="info-key">Copies Sold</span><span class="info-val" style="color:var(--gold)">516M+</span></div>
+      <div class="info-row"><span class="info-key">Genre</span><span class="info-val">Adventure / Shōnen</span></div>
+      <div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--red)">Ongoing (Final Saga)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" id="stats">
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat">
+        <span class="stat-icon">📺</span>
+        <span class="stat-val">1100+</span>
+        <span class="stat-lbl">Anime Episodes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">📖</span>
+        <span class="stat-val">1130+</span>
+        <span class="stat-lbl">Manga Chapters</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">📚</span>
+        <span class="stat-val">108</span>
+        <span class="stat-lbl">Manga Volumes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🎬</span>
+        <span class="stat-val">15</span>
+        <span class="stat-lbl">Feature Films</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🌍</span>
+        <span class="stat-val">516M+</span>
+        <span class="stat-lbl">Copies Sold</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🗺️</span>
+        <span class="stat-val">27+</span>
+        <span class="stat-lbl">Story Arcs</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🍎</span>
+        <span class="stat-val">180+</span>
+        <span class="stat-lbl">Devil Fruits</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🏴‍☠️</span>
+        <span class="stat-val">1000+</span>
+        <span class="stat-lbl">Named Characters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYNOPSIS -->
+<section class="section" id="synopsis">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">The Story</span>
+      <h2 class="section-title">Synopsis & Background</h2>
+      <p class="section-sub">A twenty-five year journey that has captivated hundreds of millions of readers worldwide.</p>
+    </div>
+    <div class="synopsis-wrap">
+      <div class="synopsis-text reveal">
+        <p><strong>One Piece</strong> begins with the execution of <em>Gol D. Roger</em>, the self-proclaimed King of the Pirates. Before his death, Roger reveals that he has left his greatest treasure — the legendary <em>"One Piece"</em> — somewhere at the end of the Grand Line. His last words ignite a new era of piracy as adventurers from around the world set sail to claim the treasure and the title of Pirate King.</p>
+        <p>Twenty years later, <strong>Monkey D. Luffy</strong>, a young boy from the East Blue, accidentally eats the <em>Gomu Gomu no Mi</em>, a Devil Fruit that turns his body into rubber at the cost of his ability to swim. Inspired by the pirate Shanks, Luffy sets out to sea with a single dream: to become the King of the Pirates.</p>
+        <p>Along his journey, Luffy assembles a diverse and unforgettable crew — the <strong>Straw Hat Pirates</strong> — each carrying their own dreams and burdens. Together they sail through the dangerous Grand Line, battling fearsome pirates, corrupt marines, tyrannical kings, and shadowy world powers.</p>
+        <p>The series masterfully weaves themes of <em>friendship, freedom, justice, and the meaning of a dream</em> into epic narrative arcs. As the story progresses, deeper mysteries unfold: the Void Century, the Will of D., the Ancient Weapons, and the nature of the One Piece itself — a grand tapestry that Oda has been building since the very first chapter.</p>
+        <p>One Piece is currently in its <strong>Final Saga</strong>, set to answer the questions that have driven the story for nearly three decades. It is widely considered one of the greatest long-form narratives in manga history.</p>
+      </div>
+      <div class="quick-facts reveal">
+        <div class="fact-card">
+          <div class="fact-label">World's Best-Selling Manga</div>
+          <div class="fact-value gold">Guinness Record Holder</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Protagonist</div>
+          <div class="fact-value">Monkey D. Luffy</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Goal</div>
+          <div class="fact-value">Find the One Piece</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Setting</div>
+          <div class="fact-value">Vast Blue Ocean World</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Current Arc</div>
+          <div class="fact-value red">Final Saga — Egghead</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Creator's Inspiration</div>
+          <div class="fact-value">Dragon Ball, Toriko, Akira</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Live Action Adaptation</div>
+          <div class="fact-value">Netflix (2023) — Season 2 announced</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Biggest Single Chapter Sales</div>
+          <div class="fact-value gold">Volume 67 — 5M copies first print</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section class="section" id="characters">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Crew & Rivals</span>
+      <h2 class="section-title">Memorable Characters</h2>
+      <p class="section-sub">From the Straw Hat crew to the mightiest emperors — every character in One Piece has a story worth knowing.</p>
+    </div>
+    <div class="char-controls reveal">
+      <div class="search-box">
+        <input class="search-input" id="charSearch" placeholder="Search characters by name..." oninput="filterChars()">
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="filterGroup('all',this)">All</button>
+        <button class="tab-btn" onclick="filterGroup('strawhat',this)">🏴‍☠️ Straw Hats</button>
+        <button class="tab-btn" onclick="filterGroup('yonko',this)">👑 Yonko</button>
+        <button class="tab-btn" onclick="filterGroup('marine',this)">⚓ Marines</button>
+        <button class="tab-btn" onclick="filterGroup('villain',this)">💀 Villains</button>
+        <button class="tab-btn" onclick="filterGroup('ally',this)">🤝 Allies</button>
+      </div>
+    </div>
+    <div class="chars-grid" id="charsGrid">
+
+      <!-- STRAW HATS -->
+      <div class="char-card reveal" data-group="strawhat" data-name="monkey d luffy">
+        <div class="char-banner" style="background:linear-gradient(90deg,#c8860a,#f0b429)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fff8e8">🤠</div>
+            <div>
+              <div class="char-name">Monkey D. Luffy</div>
+              <div class="char-alias">Straw Hat Luffy / Joy Boy</div>
+            </div>
+          </div>
+          <div class="char-role">Captain — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 3,000,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Hito Hito no Mi: Nika</span></div>
+            <div class="char-detail-row"><span class="cd-key">Fighting Style</span><span class="cd-val">Gomu Gomu / Haki</span></div>
+            <div class="char-detail-row"><span class="cd-key">Origin</span><span class="cd-val">East Blue, Fuchsia Village</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">King of the Pirates</span></div>
+          </div>
+          <p class="char-bio">Cheerful and reckless, Luffy fights with all his heart for his friends. After awakening his true power as the legendary Sun God Nika, he has become one of the most dangerous pirates alive. His Conqueror's Haki is among the strongest in the world.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="roronoa zoro">
+        <div class="char-banner" style="background:linear-gradient(90deg,#1a4a8a,#3a7bd5)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#eff5ff">⚔️</div>
+            <div>
+              <div class="char-name">Roronoa Zoro</div>
+              <div class="char-alias">Pirate Hunter / The Demon</div>
+            </div>
+          </div>
+          <div class="char-role">Swordsman — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 1,111,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val teal">None — Three Sword Style</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val">Armament, Observation, Conqueror's</span></div>
+            <div class="char-detail-row"><span class="cd-key">Swords</span><span class="cd-val">Enma, Wado Ichimonji, Sandai Kitetsu</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">World's Greatest Swordsman</span></div>
+          </div>
+          <p class="char-bio">Once a bounty hunter, Zoro swore to never lose again after the death of his childhood rival Kuina. His three-sword style and ironclad will make him Luffy's most fearsome combatant. His sacrifice at Thriller Bark remains iconic: "Nothing happened."</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="nami">
+        <div class="char-banner" style="background:linear-gradient(90deg,#e8a020,#f9d06a)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fdf8e8">🗺️</div>
+            <div>
+              <div class="char-name">Nami</div>
+              <div class="char-alias">Cat Burglar / Weather Witch</div>
+            </div>
+          </div>
+          <div class="char-role">Navigator — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 366,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Weapon</span><span class="cd-val purple">Clima-Tact (Zeus Thundercloud)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Specialty</span><span class="cd-val">Weather Manipulation, Navigation</span></div>
+            <div class="char-detail-row"><span class="cd-key">Origin</span><span class="cd-val">East Blue, Cocoyasi Village</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Map of the Entire World</span></div>
+          </div>
+          <p class="char-bio">A brilliant navigator with an encyclopedic knowledge of weather patterns, Nami can predict storms far in advance. Her weapon, the Clima-Tact imbued with Zeus, lets her create powerful weather attacks.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="usopp sogeking">
+        <div class="char-banner" style="background:linear-gradient(90deg,#8B5E3C,#b88050)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#f9f0e8">🎯</div>
+            <div>
+              <div class="char-name">Usopp</div>
+              <div class="char-alias">Sogeking / God Usopp</div>
+            </div>
+          </div>
+          <div class="char-role">Sniper — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 500,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Weapon</span><span class="cd-val purple">Black Kabuto (pop greens)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Specialty</span><span class="cd-val">Marksmanship, Inventions</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val">Observation (Awakening)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Brave Warrior of the Sea</span></div>
+          </div>
+          <p class="char-bio">Usopp is a coward who keeps choosing to be brave anyway. His sharpshooter skills are legendary, and his lies have a habit of becoming truth. As "God Usopp," he is beloved by the people of Dressrosa.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="sanji vinsmoke">
+        <div class="char-banner" style="background:linear-gradient(90deg,#c8a820,#edd060)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fdf8e0">🦵</div>
+            <div>
+              <div class="char-name">Sanji</div>
+              <div class="char-alias">Black Leg / Prince of Germa</div>
+            </div>
+          </div>
+          <div class="char-role">Chef — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 1,032,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Ability</span><span class="cd-val purple">Ifrit Jambe / Diable Jambe</span></div>
+            <div class="char-detail-row"><span class="cd-key">Fighting Style</span><span class="cd-val">Black Leg Style (kicks only)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val">Observation, Armament</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">All Blue — legendary sea</span></div>
+          </div>
+          <p class="char-bio">Trained by the pirate chef Zeff, Sanji fights exclusively with his legs to protect his hands for cooking. Of royal Vinsmoke lineage, he activates genetic modifications in battle. His Ifrit Jambe produces superhot blue flames.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="tony tony chopper doctor">
+        <div class="char-banner" style="background:linear-gradient(90deg,#c0392b,#e57373)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fff0f0">🦌</div>
+            <div>
+              <div class="char-name">Tony Tony Chopper</div>
+              <div class="char-alias">Cotton Candy Lover</div>
+            </div>
+          </div>
+          <div class="char-role">Doctor — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 1,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Hito Hito no Mi (Human-Human)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Specialty</span><span class="cd-val">Medicine, Rumble Ball transformations</span></div>
+            <div class="char-detail-row"><span class="cd-key">Mentor</span><span class="cd-val">Dr. Hiluluk & Dr. Kureha</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Cure all world's diseases</span></div>
+          </div>
+          <p class="char-bio">A reindeer who ate the Human-Human Fruit, Chopper gained human intelligence and medical knowledge. Trained as a doctor by the eccentric Kureha, he can transform into multiple forms via Rumble Ball and is the crew's beloved healer.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="nico robin archaeologist devil child">
+        <div class="char-banner" style="background:linear-gradient(90deg,#5a3e8a,#9b6fd4)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#f8f0ff">🌸</div>
+            <div>
+              <div class="char-name">Nico Robin</div>
+              <div class="char-alias">Devil Child / Light of the Revolution</div>
+            </div>
+          </div>
+          <div class="char-role">Archaeologist — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 930,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Hana Hana no Mi (Flower-Flower)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Specialty</span><span class="cd-val">Archaeology, Poneglyph reading</span></div>
+            <div class="char-detail-row"><span class="cd-key">Origin</span><span class="cd-val">Ohara Island (destroyed)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Discover the True History</span></div>
+          </div>
+          <p class="char-bio">The only survivor of Ohara's destruction, Robin can read the ancient Poneglyphs that hold the world's forbidden history. Her fruit lets her sprout copies of her body parts on any surface. Her rescue at Enies Lobby is one of the most emotional moments in the series.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="franky shipwright cyborg">
+        <div class="char-banner" style="background:linear-gradient(90deg,#1a4a8a,#4a8ad4)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#eff5ff">🔧</div>
+            <div>
+              <div class="char-name">Franky</div>
+              <div class="char-alias">Cutty Flam / Iron Man</div>
+            </div>
+          </div>
+          <div class="char-role">Shipwright — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 394,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Ability</span><span class="cd-val purple">Cyborg Body — Cola Powered</span></div>
+            <div class="char-detail-row"><span class="cd-key">Creation</span><span class="cd-val">Built the Thousand Sunny</span></div>
+            <div class="char-detail-row"><span class="cd-key">Origin</span><span class="cd-val">Water 7, apprentice of Tom</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Sail the ship he built to the end</span></div>
+          </div>
+          <p class="char-bio">Franky rebuilt his own body using the blueprints of Tom's Workers. He powered himself with cola and added weapons to his cyborg frame. He built the Thousand Sunny, the Straw Hats' beloved ship, using the legendary Adam Wood.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="brook musician soul king skeleton">
+        <div class="char-banner" style="background:linear-gradient(90deg,#333,#666)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#f5f5f5">💀</div>
+            <div>
+              <div class="char-name">Brook</div>
+              <div class="char-alias">Soul King / Humming Brook</div>
+            </div>
+          </div>
+          <div class="char-role">Musician — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 383,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Yomi Yomi no Mi (Revive-Revive)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Specialty</span><span class="cd-val">Soul Music, Soul Manifestation</span></div>
+            <div class="char-detail-row"><span class="cd-key">Weapon</span><span class="cd-val">Soul Solid — chilled soul blade</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Return to Laboon the whale</span></div>
+          </div>
+          <p class="char-bio">Brook died and was revived by the Yomi Yomi no Mi, but his soul took so long to find his body that only bones remained. A world-famous rock musician and violinist, his soul powers can freeze opponents and leave his body. "May I see your underwear?"</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="strawhat" data-name="jinbe helmsman fish-man karate">
+        <div class="char-banner" style="background:linear-gradient(90deg,#127a6e,#34b4a6)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#e4f5f3">🐠</div>
+            <div>
+              <div class="char-name">Jinbe</div>
+              <div class="char-alias">Knight of the Sea</div>
+            </div>
+          </div>
+          <div class="char-role">Helmsman — Straw Hat Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 1,100,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Ability</span><span class="cd-val purple">Fish-Man Karate & Jujutsu</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val">Armament, Observation</span></div>
+            <div class="char-detail-row"><span class="cd-key">Former Role</span><span class="cd-val">Warlord of the Sea</span></div>
+            <div class="char-detail-row"><span class="cd-key">Dream</span><span class="cd-val gold">Peace between humans & fish-men</span></div>
+          </div>
+          <p class="char-bio">A former Warlord and captain of the Sun Pirates, Jinbe is a veteran warrior and expert helmsman. His Fish-Man Karate manipulates water in the environment itself. He guided Luffy out of his despair after Ace's death at Marineford.</p>
+        </div>
+      </div>
+
+      <!-- YONKO -->
+      <div class="char-card reveal" data-group="yonko" data-name="shanks red-haired yonko">
+        <div class="char-banner" style="background:linear-gradient(90deg,#c0392b,#e74c3c)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fff0f0">🏴‍☠️</div>
+            <div>
+              <div class="char-name">Shanks</div>
+              <div class="char-alias">Red-Haired Shanks</div>
+            </div>
+          </div>
+          <div class="char-role">Yonko — Red Hair Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 4,048,900,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val teal">None — Supreme Haki</span></div>
+            <div class="char-detail-row"><span class="cd-key">Role</span><span class="cd-val">Luffy's Childhood Inspiration</span></div>
+            <div class="char-detail-row"><span class="cd-key">Former Crew</span><span class="cd-val">Roger Pirates (cabin boy)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val gold">Strongest Conqueror's Known</span></div>
+          </div>
+          <p class="char-bio">Shanks gave Luffy his iconic straw hat and lost his arm saving him from a Sea King. A former apprentice on Gol D. Roger's ship, his Conqueror's Haki alone stopped a sea-ice tsunami. His true goals remain the series' greatest mystery.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="yonko" data-name="marshall d teach blackbeard yonko">
+        <div class="char-banner" style="background:linear-gradient(90deg,#1a1a2e,#444)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#f0f0f0">🌑</div>
+            <div>
+              <div class="char-name">Marshall D. Teach</div>
+              <div class="char-alias">Blackbeard — Darkness</div>
+            </div>
+          </div>
+          <div class="char-role">Yonko — Blackbeard Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 3,996,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruits</span><span class="cd-val purple">Yami Yami no Mi + Gura Gura no Mi</span></div>
+            <div class="char-detail-row"><span class="cd-key">Anomaly</span><span class="cd-val red">Only person with two Devil Fruits</span></div>
+            <div class="char-detail-row"><span class="cd-key">Notoriety</span><span class="cd-val">Killed Whitebeard, stole his power</span></div>
+            <div class="char-detail-row"><span class="cd-key">Title</span><span class="cd-val gold">Pirate King Candidate</span></div>
+          </div>
+          <p class="char-bio">The series' ultimate opportunist — patient, ruthless, and brilliant. Teach planned for decades to steal the Yami Yami no Mi. After killing Whitebeard, he somehow absorbed his Gura Gura no Mi, a feat considered impossible. The Final Saga's chief antagonist.</p>
+        </div>
+      </div>
+
+      <!-- MARINES -->
+      <div class="char-card reveal" data-group="marine" data-name="monkey d garp vice admiral hero marines">
+        <div class="char-banner" style="background:linear-gradient(90deg,#1a4a8a,#2e6db4)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#eff5ff">👴</div>
+            <div>
+              <div class="char-name">Monkey D. Garp</div>
+              <div class="char-alias">Hero of the Marines</div>
+            </div>
+          </div>
+          <div class="char-role">Vice Admiral — Marines / Luffy's Grandfather</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Rank</span><span class="cd-val">Vice Admiral (refused Admiral)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val teal">None — Pure Haki & Fist</span></div>
+            <div class="char-detail-row"><span class="cd-key">Achievement</span><span class="cd-val">Cornered Gol D. Roger repeatedly</span></div>
+            <div class="char-detail-row"><span class="cd-key">Family</span><span class="cd-val">Father of Dragon, Grandfather of Luffy</span></div>
+            <div class="char-detail-row"><span class="cd-key">Weapon</span><span class="cd-val gold">Iron Fist — cannonball throws</span></div>
+          </div>
+          <p class="char-bio">Once called the Marine Hero for cornering the Pirate King Roger, Garp rejected multiple promotions to Admiral. His loyalty to justice is matched only by his love for his family — a conflict that recently came to a heartbreaking conclusion in the Egghead arc.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="marine" data-name="sakazuki akainu fleet admiral magma">
+        <div class="char-banner" style="background:linear-gradient(90deg,#8b1a1a,#c0392b)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fff0f0">🌋</div>
+            <div>
+              <div class="char-name">Sakazuki</div>
+              <div class="char-alias">Akainu — Red Dog</div>
+            </div>
+          </div>
+          <div class="char-role">Fleet Admiral — Marines</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Magu Magu no Mi — Magma Logia</span></div>
+            <div class="char-detail-row"><span class="cd-key">Philosophy</span><span class="cd-val red">Absolute Justice (Zero mercy)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Infamy</span><span class="cd-val">Killed Portgas D. Ace</span></div>
+            <div class="char-detail-row"><span class="cd-key">Duel</span><span class="cd-val">Defeated Aokiji for Fleet Admiral seat</span></div>
+            <div class="char-detail-row"><span class="cd-key">Strength</span><span class="cd-val gold">One of the strongest Marines alive</span></div>
+          </div>
+          <p class="char-bio">Akainu embodies "Absolute Justice" — the belief that any means are justified to eliminate pirates. His magma fruit is considered the strongest Logia. He killed Ace, scarred Luffy for life, and remains the series' most despised non-villain figure.</p>
+        </div>
+      </div>
+
+      <!-- VILLAINS -->
+      <div class="char-card reveal" data-group="villain" data-name="donquixote doflamingo king dressrosa warlord">
+        <div class="char-banner" style="background:linear-gradient(90deg,#c0392b,#f9ca24)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#fff5f0">🕹️</div>
+            <div>
+              <div class="char-name">Doflamingo</div>
+              <div class="char-alias">Heavenly Yaksha / Joker</div>
+            </div>
+          </div>
+          <div class="char-role">Former Warlord — King of Dressrosa</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 340,000,000 (pre-arrest)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Ito Ito no Mi — String-String</span></div>
+            <div class="char-detail-row"><span class="cd-key">Network</span><span class="cd-val">SMILE Factory / Underworld broker</span></div>
+            <div class="char-detail-row"><span class="cd-key">Family</span><span class="cd-val">Donquixote royal bloodline (Celestial Dragon)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val gold">Conqueror's Haki user</span></div>
+          </div>
+          <p class="char-bio">The charismatic ruler of Dressrosa hid immense cruelty beneath a flamboyant exterior. His control of the SMILE trade gave him leverage over Kaido himself. His defeat by Luffy's Gear Fourth was a turning point for the entire New World.</p>
+        </div>
+      </div>
+
+      <div class="char-card reveal" data-group="villain" data-name="kaido beast yonko strongest">
+        <div class="char-banner" style="background:linear-gradient(90deg,#5a3e8a,#9b59b6)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#f8f0ff">🐉</div>
+            <div>
+              <div class="char-name">Kaido of the Beasts</div>
+              <div class="char-alias">King of the Beasts / Strongest Creature</div>
+            </div>
+          </div>
+          <div class="char-role">Former Yonko — Beasts Pirates</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 4,611,100,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Uo Uo no Mi, Model: Seiryuu (Azure Dragon)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Infamy</span><span class="cd-val">Survived every execution attempt</span></div>
+            <div class="char-detail-row"><span class="cd-key">Haki</span><span class="cd-val">All three types — Conqueror's imbuing</span></div>
+            <div class="char-detail-row"><span class="cd-key">Myth</span><span class="cd-val gold">Unkillable — tried suicide for fun</span></div>
+          </div>
+          <p class="char-bio">Called the strongest creature in the world, Kaido was the primary antagonist of the Wano arc. He conquered Wano Country and turned it into a weapons factory. Luffy defeated him using Gear Fifth — an awakening that shook the world to its foundations.</p>
+        </div>
+      </div>
+
+      <!-- ALLIES -->
+      <div class="char-card reveal" data-group="ally" data-name="trafalgar law surgeon death">
+        <div class="char-banner" style="background:linear-gradient(90deg,#127a6e,#1abc9c)"></div>
+        <div class="char-body">
+          <div class="char-top">
+            <div class="char-ava" style="background:#e4f5f3">⚕️</div>
+            <div>
+              <div class="char-name">Trafalgar D. Law</div>
+              <div class="char-alias">Surgeon of Death</div>
+            </div>
+          </div>
+          <div class="char-role">Captain — Heart Pirates / Alliance</div>
+          <div class="char-details">
+            <div class="char-detail-row"><span class="cd-key">Bounty</span><span class="cd-val red">₿ 3,000,000,000</span></div>
+            <div class="char-detail-row"><span class="cd-key">Devil Fruit</span><span class="cd-val purple">Ope Ope no Mi — Op-Op Fruit</span></div>
+            <div class="char-detail-row"><span class="cd-key">Ability</span><span class="cd-val">ROOM — spatial manipulation sphere</span></div>
+            <div class="char-detail-row"><span class="cd-key">Mentor</span><span class="cd-val">Corazon (Donquixote Rosinante)</span></div>
+            <div class="char-detail-row"><span class="cd-key">Goal</span><span class="cd-val gold">Destroy the Donquixote family</span></div>
+          </div>
+          <p class="char-bio">Law's Ope Ope no Mi is considered the "Ultimate Devil Fruit" — it can grant immortality at the cost of the user's life. A key ally in Dressrosa and Wano, Law is calculating and strategic, a perfect counterpart to Luffy's instinct-driven approach.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARCS -->
+<section class="section" id="arcs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">The Journey</span>
+      <h2 class="section-title">Major Story Arcs</h2>
+      <p class="section-sub">From a small village in East Blue to the final frontier of the Grand Line — over 25 years of adventure.</p>
+    </div>
+    <div class="arcs-list">
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">01</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">East Blue Saga</div>
+          <div class="arc-name">Romance Dawn → Syrup Village → Baratie → Arlong Park</div>
+          <div class="arc-desc">Luffy sets out from Fuchsia Village and begins recruiting his crew. He meets Zoro (a caged bounty hunter), Nami (a thieving navigator), Usopp (a lying sniper), and Sanji (a chivalrous chef). The saga culminates in the emotionally charged Arlong Park arc where Luffy destroys Arlong's base to free Nami's village, setting the tone for the entire series.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Crew formation</span><span class="arc-tag">First villain crew</span><span class="arc-tag">Nami's backstory</span><span class="arc-tag">Luffy's dream established</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 1–61</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">02</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Alabasta Saga</div>
+          <div class="arc-name">Reverse Mountain → Drum Island → Alabasta</div>
+          <div class="arc-desc">The crew enters the Grand Line via Reverse Mountain and recruits Tony Tony Chopper on Drum Island. They then battle the Baroque Works organization across the desert kingdom of Alabasta, where Nico Robin is introduced as the antagonist's subordinate. Crocodile, a Warlord of the Sea, seeks an Ancient Weapon to conquer the world.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">First Warlord villain</span><span class="arc-tag">Grand Line begins</span><span class="arc-tag">Chopper & Robin join</span><span class="arc-tag">Ancient Weapons hint</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 62–135</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">03</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Sky Island Saga</div>
+          <div class="arc-name">Jaya → Skypiea</div>
+          <div class="arc-desc">The crew rides the Knock Up Stream to Skypiea, a sky island above the clouds where the self-proclaimed God Enel rules with absolute power and his Goro Goro no Mi (lightning). The arc delves deep into ancient history, ancient civilizations, and the mystery of Poneglyphs. Luffy defeats Enel with his rubber body, which is naturally immune to lightning.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Ancient history</span><span class="arc-tag">Poneglyphs introduced</span><span class="arc-tag">God Enel</span><span class="arc-tag">Sky civilization</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 136–206</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">04</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Water 7 / Enies Lobby Saga</div>
+          <div class="arc-name">Long Ring → Water 7 → Enies Lobby → Thriller Bark</div>
+          <div class="arc-desc">Widely considered the series' greatest narrative achievement. The Going Merry is declared unseaworthy, fracturing the crew. Robin is captured by the CP9 government agents. Luffy declares war on the World Government itself and leads the crew into Enies Lobby to rescue Robin. "I want to live!" — Robin's breakdown remains one of anime's most emotional moments. The Buster Call, the burning of the flag, Zoro's sacrifice. Franky and Brook join the crew.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Greatest arc</span><span class="arc-tag">Robin's backstory</span><span class="arc-tag">Zoro's nothing happened</span><span class="arc-tag">Franky & Brook join</span><span class="arc-tag">Thousand Sunny built</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 207–325</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">05</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Summit War Saga</div>
+          <div class="arc-name">Sabaody → Amazon Lily → Impel Down → Marineford</div>
+          <div class="arc-desc">The crew reaches the Sabaody Archipelago and is brutally scattered by Bartholomew Kuma. Luffy alone breaks into Impel Down — the world's most fortified prison — to save his brother Ace, recruiting an unlikely alliance along the way. The Summit War at Marineford sees Whitebeard's full power, Ace's execution, and Ace's death. The darkest, most devastating arc in the series. Luffy trains for two years.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Crew separated</span><span class="arc-tag">Impel Down raid</span><span class="arc-tag">Ace's death</span><span class="arc-tag">Whitebeard's power</span><span class="arc-tag">Two-year timeskip</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 385–516</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">06</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Dressrosa Saga</div>
+          <div class="arc-name">Punk Hazard → Dressrosa</div>
+          <div class="arc-desc">Law and Luffy form an alliance against Kaido via Doflamingo. On Punk Hazard, they uncover Caesar Clown's illegal human experiments. In Dressrosa, the colosseum tournament, the hidden SMILE factory, and the truth of Doflamingo's rule unfold. Luffy achieves Gear Fourth for the first time to defeat Doflamingo. Sabo returns. The Straw Hat Grand Fleet is formed.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Gear Fourth debut</span><span class="arc-tag">Sabo returns</span><span class="arc-tag">Doflamingo defeated</span><span class="arc-tag">Grand Fleet formed</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 629–746</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">07</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Whole Cake Island Saga</div>
+          <div class="arc-name">Zou → Whole Cake Island</div>
+          <div class="arc-desc">Sanji is recalled to his Vinsmoke royal family for a political marriage arranged by Big Mom. The crew infiltrates Totto Land, Big Mom's massive empire, to retrieve Sanji. A tense, psychologically rich arc that explores Sanji's tragic past, Big Mom's manipulative rule, and features one of the most emotional father-son moments in the series — Vinsmoke Judge's breakdown.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Sanji's backstory</span><span class="arc-tag">Big Mom's empire</span><span class="arc-tag">Jinbe joins crew</span><span class="arc-tag">Vinsmoke family</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 783–877</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal">
+        <div class="arc-num-block"><span class="arc-saga-num">08</span><span class="arc-saga-lbl">Saga</span></div>
+        <div>
+          <div class="arc-saga-name">Wano Country Saga</div>
+          <div class="arc-name">Wano Country — Raid on Onigashima</div>
+          <div class="arc-desc">The longest arc in the series. An isolated samurai nation under Kaido and Orochi's occupation. The Straw Hats lead a massive rebel alliance in a raid on Onigashima — Kaido's fortress island. Luffy awakens Gear Fifth, the legendary Sun God Nika, and defeats Kaido. Zoro masters Conqueror's Haki imbuing, Robin unlocks her true potential, and the Scabbards honor Oden's 20-year wish. A saga-length epic with hundreds of simultaneous battles.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Gear Fifth awakening</span><span class="arc-tag">Kaido defeated</span><span class="arc-tag">Joy Boy revealed</span><span class="arc-tag">Oden's backstory</span><span class="arc-tag">Longest arc ever</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 909–1085</span>
+          <span class="arc-eps-lbl">Anime</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+      <div class="arc-card reveal" style="border-color:rgba(200,134,10,0.4); background:linear-gradient(135deg,#fffdf8,#fff8e8);">
+        <div class="arc-num-block"><span class="arc-saga-num">09</span><span class="arc-saga-lbl">Final</span></div>
+        <div>
+          <div class="arc-saga-name">⭐ Final Saga — Ongoing</div>
+          <div class="arc-name">Egghead Island → Elbaf → Beyond</div>
+          <div class="arc-desc">The final chapter of One Piece has begun. On Egghead Island, the crew meets Dr. Vegapunk — the world's greatest scientist — and unravels secrets of the Void Century via the Vegaforce-01 broadcast. The Five Elders descend in their monstrous awakened Zoan forms. Major revelations about Im-sama, the Ancient Kingdom, and the true nature of the One Piece are cascading rapidly. Every chapter shakes the entire world of the story.</div>
+          <div class="arc-highlights">
+            <span class="arc-tag">Vegapunk's truth</span><span class="arc-tag">Five Elders revealed</span><span class="arc-tag">Void Century answers</span><span class="arc-tag">Elbaf (upcoming)</span><span class="arc-tag">ONGOING</span>
+          </div>
+        </div>
+        <div class="arc-meta">
+          <span class="arc-eps-val">Eps 1086+</span>
+          <span class="arc-eps-lbl">Ongoing</span>
+          <div class="arc-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEVIL FRUITS -->
+<section class="section" id="devil-fruits">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Mystical Powers</span>
+      <h2 class="section-title">Devil Fruits</h2>
+      <p class="section-sub">Mysterious fruits that grant incredible powers — at the permanent cost of the ability to swim.</p>
+    </div>
+    <div class="fruits-intro reveal">
+      <div class="fruit-type-block">
+        <div class="ftype-name">🔵 Paramecia</div>
+        <div class="ftype-desc">The most common type. Grants superhuman abilities or powers to manipulate the environment. Users retain their human body. Examples: Gomu Gomu (rubber), Ope Ope (spatial Room), Ito Ito (strings).</div>
+      </div>
+      <div class="fruit-type-block">
+        <div class="ftype-name">🟡 Logia</div>
+        <div class="ftype-desc">The rarest and most powerful type (before awakening meta). Users become and generate an element — intangible to normal attacks. Examples: Magu Magu (magma), Hie Hie (ice), Goro Goro (lightning).</div>
+      </div>
+      <div class="fruit-type-block">
+        <div class="ftype-name">🟢 Zoan</div>
+        <div class="ftype-desc">Grants animal transformation. Mythical Zoans grant godlike forms based on legend. Ancient Zoans grant prehistoric beast forms. Examples: Hito Hito (human), Uo Uo: Seiryuu (Azure Dragon), Tori Tori: Phoenix.</div>
+      </div>
+    </div>
+    <div class="fruits-grid">
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#fff8e8">🫀</div>
+        <div class="fruit-name">Hito Hito no Mi, Model: Nika</div>
+        <span class="fruit-type-badge badge-mythical">Mythical Zoan</span>
+        <div class="fruit-user-line">Monkey D. Luffy</div>
+        <div class="fruit-ability">Awakened as the Sun God Nika — Gear Fifth gives Luffy cartoon-like freedom to reshape reality itself. Officially the world's most ridiculous, most powerful fruit.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#1a1a2e22">🌑</div>
+        <div class="fruit-name">Yami Yami no Mi</div>
+        <span class="fruit-type-badge badge-logia">Logia</span>
+        <div class="fruit-user-line">Marshall D. Teach (Blackbeard)</div>
+        <div class="fruit-ability">Creates darkness that can suck in anything and even nullify other Devil Fruit powers on contact. Uniquely, the user feels all pain normally — and can absorb multiple fruits.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#fff0f022">🌋</div>
+        <div class="fruit-name">Magu Magu no Mi</div>
+        <span class="fruit-type-badge badge-logia">Logia</span>
+        <div class="fruit-user-line">Sakazuki (Akainu)</div>
+        <div class="fruit-ability">Transforms the user into magma — considered the absolute strongest Logia. Magma burns even fire Logia, making it superior to Ace's Mera Mera fruit. Akainu scorched half of Whitebeard's face clean off.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#e8f0fb">❄️</div>
+        <div class="fruit-name">Hie Hie no Mi</div>
+        <span class="fruit-type-badge badge-logia">Logia</span>
+        <div class="fruit-user-line">Kuzan (Aokiji)</div>
+        <div class="fruit-ability">Creates and controls ice instantly, capable of freezing entire seas. Aokiji fought Akainu for 10 days on Punk Hazard — the resulting terrain is half frozen, half scorched to this day.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#fff8e8">⚡</div>
+        <div class="fruit-name">Goro Goro no Mi</div>
+        <span class="fruit-type-badge badge-logia">Logia</span>
+        <div class="fruit-user-line">Enel (God of Skypiea)</div>
+        <div class="fruit-ability">The lightning Logia. Enel claimed it made him invincible — and it did, against everyone except Luffy, whose rubber body is a natural insulator. Allows light-speed movement and omnidirectional sensing via electricity.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#f0ebfa">🕸️</div>
+        <div class="fruit-name">Ito Ito no Mi</div>
+        <span class="fruit-type-badge badge-paramecia">Paramecia</span>
+        <div class="fruit-user-line">Donquixote Doflamingo</div>
+        <div class="fruit-ability">Creates and manipulates strings powerful enough to slice through buildings and control people like puppets. Awakening allows Doflamingo to turn the surrounding environment into strings — creating the terrifying Birdcage.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#fff0f0">🌸</div>
+        <div class="fruit-name">Hana Hana no Mi</div>
+        <span class="fruit-type-badge badge-paramecia">Paramecia</span>
+        <div class="fruit-user-line">Nico Robin</div>
+        <div class="fruit-ability">Allows Robin to sprout copies of her body parts (arms, eyes, wings) on any surface. After Wano, she can create a giant full-body clone — "Gigante Fleur." All pain inflicted on her copies is felt by Robin.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#f8f0ff">🐉</div>
+        <div class="fruit-name">Uo Uo no Mi, Model: Seiryuu</div>
+        <span class="fruit-type-badge badge-mythical">Mythical Zoan</span>
+        <div class="fruit-user-line">Kaido of the Beasts</div>
+        <div class="fruit-ability">Transforms Kaido into a massive Azure Dragon capable of flight, fire breath, and weather control. Considered one of the most powerful Zoan transformations. He can also use a human-dragon hybrid form.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#e4f5f3">🌀</div>
+        <div class="fruit-name">Gura Gura no Mi</div>
+        <span class="fruit-type-badge badge-paramecia">Paramecia</span>
+        <div class="fruit-user-line">Whitebeard / Blackbeard</div>
+        <div class="fruit-ability">Creates powerful vibrations capable of generating earthquakes and tsunamis. Called the power to destroy the world. Whitebeard split the sea with it. Now wielded by Blackbeard alongside his Yami Yami.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#f5f5f5">💀</div>
+        <div class="fruit-name">Yomi Yomi no Mi</div>
+        <span class="fruit-type-badge badge-paramecia">Paramecia</span>
+        <div class="fruit-user-line">Brook</div>
+        <div class="fruit-ability">Grants resurrection after death — once only. Brook's soul manifested cryogenic cold energy after awakening, allowing him to freeze opponents' souls. He can also separate his soul from his body entirely.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#e4f5f3">⚕️</div>
+        <div class="fruit-name">Ope Ope no Mi</div>
+        <span class="fruit-type-badge badge-paramecia">Paramecia</span>
+        <div class="fruit-user-line">Trafalgar D. Law</div>
+        <div class="fruit-ability">Creates a spatial ROOM where Law has absolute surgical control over everything inside. He can teleport objects and people, swap bodies, and perform bloodless operations. Its ultimate technique grants immortality at the cost of the user's life.</div>
+      </div>
+
+      <div class="fruit-card reveal">
+        <div class="fruit-icon-wrap" style="background:#f9f0e8">🔥</div>
+        <div class="fruit-name">Mera Mera no Mi</div>
+        <span class="fruit-type-badge badge-logia">Logia</span>
+        <div class="fruit-user-line">Portgas D. Ace / Sabo</div>
+        <div class="fruit-ability">Fire Logia. Ace could transform into fire and launch powerful flame attacks. After Ace's death the fruit reappeared; Sabo claimed it at the Dressrosa colosseum tournament in an emotional reunion with Luffy.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HAKI -->
+<section class="section" id="haki">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Power System</span>
+      <h2 class="section-title">Haki — The Will Power</h2>
+      <p class="section-sub">An innate ability dormant in all living beings. The highest-tier power system in One Piece, superior to most Devil Fruits when mastered.</p>
+    </div>
+    <div class="haki-grid reveal">
+      <div class="haki-card haki-armament">
+        <span class="haki-icon">🛡️</span>
+        <div class="haki-name">Armament Haki</div>
+        <div class="haki-jp">Busoshoku Haki</div>
+        <div class="haki-desc">Creates an invisible armor coating the user's body and weapons, making attacks far more powerful and capable of bypassing Logia intangibility. Advanced usage allows the user to emit Haki from a distance — destroying things from within. Masters can harden limbs black like obsidian.</div>
+        <div class="haki-masters">
+          <div class="haki-masters-title">Notable Masters</div>
+          <div class="haki-user-tags">
+            <span class="haki-user-tag">Luffy</span><span class="haki-user-tag">Zoro</span><span class="haki-user-tag">Sanji</span><span class="haki-user-tag">Rayleigh</span><span class="haki-user-tag">Garp</span><span class="haki-user-tag">Akainu</span>
+          </div>
+        </div>
+      </div>
+      <div class="haki-card haki-observation">
+        <span class="haki-icon">👁️</span>
+        <div class="haki-name">Observation Haki</div>
+        <div class="haki-jp">Kenbunshoku Haki</div>
+        <div class="haki-desc">Heightened awareness that allows the user to sense the presence, emotions, and intent of others — even without sight. Advanced users can see a short distance into the future, essentially precognition. Enel's use of this covered all of Skypiea. Usopp awakened it unconsciously at Dressrosa.</div>
+        <div class="haki-masters">
+          <div class="haki-masters-title">Notable Masters</div>
+          <div class="haki-user-tags">
+            <span class="haki-user-tag">Enel</span><span class="haki-user-tag">Katakuri</span><span class="haki-user-tag">Shanks</span><span class="haki-user-tag">Usopp</span><span class="haki-user-tag">Law</span><span class="haki-user-tag">Luffy</span>
+          </div>
+        </div>
+      </div>
+      <div class="haki-card haki-conqueror">
+        <span class="haki-icon">👑</span>
+        <div class="haki-name">Conqueror's Haki</div>
+        <div class="haki-jp">Haoshoku Haki</div>
+        <div class="haki-desc">The rarest form — cannot be learned or taught, only born with. It emanates the willpower of a king, capable of overwhelming the minds of weaker-willed opponents. Advanced masters can imbue it into weapons and attacks, creating electrical-looking discharges. Only 1 in several million people possess it.</div>
+        <div class="haki-masters">
+          <div class="haki-masters-title">Notable Users</div>
+          <div class="haki-user-tags">
+            <span class="haki-user-tag">Luffy</span><span class="haki-user-tag">Shanks</span><span class="haki-user-tag">Kaido</span><span class="haki-user-tag">Zoro</span><span class="haki-user-tag">Roger</span><span class="haki-user-tag">Whitebeard</span><span class="haki-user-tag">Big Mom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLD LORE -->
+<section class="section" id="world">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Lore & World Building</span>
+      <h2 class="section-title">The World of One Piece</h2>
+      <p class="section-sub">A vast, richly detailed ocean world with centuries of hidden history, political intrigue, and mythological depth.</p>
+    </div>
+    <div class="lore-tabs reveal">
+      <button class="lore-tab active" onclick="showLore('locations',this)">🗺️ Locations</button>
+      <button class="lore-tab" onclick="showLore('factions',this)">🏴‍☠️ Factions</button>
+      <button class="lore-tab" onclick="showLore('mysteries',this)">🔮 Mysteries</button>
+      <button class="lore-tab" onclick="showLore('races',this)">👥 Races</button>
+    </div>
+
+    <div class="lore-panel active" id="lore-locations">
+      <div class="lore-card">
+        <div class="lore-card-title">⚓ East Blue</div>
+        <div class="lore-card-sub">Starting Sea</div>
+        <div class="lore-card-desc">Considered the weakest of the Four Blues, yet home to many powerful pirates including Luffy, Zoro, Nami, Sanji, and Usopp. Fuchsia Village, Shells Town, and the Baratie restaurant all reside here.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🌊 Grand Line</div>
+        <div class="lore-card-sub">Central Sea</div>
+        <div class="lore-card-desc">A sea that defies weather logic, separated from other seas by the Red Line. The first half is called "Paradise" — the second half, the New World, is controlled by the Yonko and is far more dangerous.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🏛️ Mary Geoise</div>
+        <div class="lore-card-sub">World Government Capital</div>
+        <div class="lore-card-desc">Built atop the Red Line, it is the seat of the World Government and home to the Celestial Dragons — a privileged class who believe themselves gods. Houses the mysterious Im-sama on the Empty Throne.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🏰 Wano Country</div>
+        <div class="lore-card-sub">Isolated Samurai Nation</div>
+        <div class="lore-card-desc">A Japan-inspired nation closed to the outside world, producing the finest swordsmen and the legendary Seastone. Oden's story and the 20-year plan against Kaido unfolded here across the series' longest arc.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🔬 Egghead Island</div>
+        <div class="lore-card-sub">Island of the Future</div>
+        <div class="lore-card-desc">Dr. Vegapunk's research island — 500 years ahead of its time. Six satellites of Vegapunk reside here. The location of world-shaking revelations about the Void Century, the Ancient Kingdom, and the nature of Devil Fruits.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🏝️ Fish-Man Island</div>
+        <div class="lore-card-sub">Underwater Kingdom</div>
+        <div class="lore-card-desc">Located 10,000 meters underwater at the base of the Red Line, this is the home of Fish-Men and Merfolk. The Joy Boy prophecy connects directly to this island and a Mermaid Princess named Shirahoshi — the Ancient Weapon Poseidon.</div>
+      </div>
+    </div>
+
+    <div class="lore-panel" id="lore-factions">
+      <div class="lore-card">
+        <div class="lore-card-title">🌐 World Government</div>
+        <div class="lore-card-sub">Global Authority (170 Nations)</div>
+        <div class="lore-card-desc">Controls justice, law, and history across the world. Founded 800 years ago after the defeat of the Ancient Kingdom. Uses the Marines and CP agents to enforce order. Suppresses any knowledge of the Void Century.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">⚓ Marines</div>
+        <div class="lore-card-sub">World Government Military</div>
+        <div class="lore-card-desc">The primary military force of the World Government. Led by Fleet Admiral Akainu. Officers hold rank from Chore Boy to Admiral. Three Admirals hold Logia or comparable powers and are considered the WG's ultimate weapons.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">👑 Four Emperors (Yonko)</div>
+        <div class="lore-card-sub">Most Powerful Pirates</div>
+        <div class="lore-card-desc">The four (now restructured) most powerful pirate captains in the New World. Their territories are unchallenged. Post-Wano: Shanks, Blackbeard, Luffy, and Buggy (ironically) hold this title.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">✊ Revolutionary Army</div>
+        <div class="lore-card-sub">Monkey D. Dragon's Organization</div>
+        <div class="lore-card-desc">An anti-World Government organization led by Luffy's father, the most wanted man in the world. Works to liberate nations from WG oppression. Sabo serves as the Chief of Staff. Their base was destroyed at Mariejois.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🕵️ Cipher Pol</div>
+        <div class="lore-card-sub">WG Secret Agents</div>
+        <div class="lore-card-desc">Intelligence agencies of the World Government. CP0 is the most elite — its agents are equal to Admiral-class threats. They use the Six Powers martial arts and report directly to the Five Elders.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🏴‍☠️ Straw Hat Grand Fleet</div>
+        <div class="lore-card-sub">5600+ Member Alliance</div>
+        <div class="lore-card-desc">Seven pirate crews swore allegiance to Luffy after Dressrosa. They operate independently but consider themselves Luffy's subordinates. Their combined power rivals small nations, and their eventual mobilization is anticipated.</div>
+      </div>
+    </div>
+
+    <div class="lore-panel" id="lore-mysteries">
+      <div class="lore-card">
+        <div class="lore-card-title">📜 The Void Century</div>
+        <div class="lore-card-sub">Forbidden History</div>
+        <div class="lore-card-desc">A 100-year gap in world history deliberately erased by the World Government. The Poneglyphs hold the truth. It involves an ancient kingdom that opposed what became the World Government, and a figure called Joy Boy who made a great promise that he failed to keep.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🔤 The Will of D.</div>
+        <div class="lore-card-sub">The Inherited Will</div>
+        <div class="lore-card-desc">Those bearing the initial "D." in their name carry a mysterious inherited will. Gol D. Roger, Monkey D. Luffy, Marshall D. Teach, Trafalgar D. Law, Portgas D. Ace, Monkey D. Dragon — all are "D." bearers. The Celestial Dragons call them "Enemies of God."</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🏺 Ancient Weapons</div>
+        <div class="lore-card-sub">World-Ending Powers</div>
+        <div class="lore-card-desc">Three ancient weapons capable of destroying the world: Pluton (a warship), Poseidon (Shirahoshi — ability to command Sea Kings), and Uranus (still unknown). Together they can reshape civilizations. Joy Boy once tried to use Poseidon.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">👤 Im-sama</div>
+        <div class="lore-card-sub">True Ruler of the World</div>
+        <div class="lore-card-desc">A mysterious figure who sits on the Empty Throne — forbidden to be sat on by anyone — and secretly rules the World Government above the Five Elders. Im's true identity, species, and power remain the series' greatest unrevealed secret.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🌟 Joy Boy</div>
+        <div class="lore-card-sub">Ancient Era Legend</div>
+        <div class="lore-card-desc">A figure from the Void Century who left a Poneglyph on Fish-Man Island apologizing for breaking a promise. Roger cried and laughed reading his story. Luffy was confirmed to be the new Joy Boy upon awakening Gear Fifth — the fulfillment of 800 years of waiting.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">☀️ The One Piece</div>
+        <div class="lore-card-sub">Gol D. Roger's Treasure</div>
+        <div class="lore-card-desc">Hidden at Laugh Tale — the world's final island, only reachable with all four Road Poneglyphs. Roger's crew reached it and laughed uproariously at what they found. Oda has confirmed the One Piece is physical and its reveal will shake the world.</div>
+      </div>
+    </div>
+
+    <div class="lore-panel" id="lore-races">
+      <div class="lore-card">
+        <div class="lore-card-title">🧑 Humans</div>
+        <div class="lore-card-sub">Most Common Race</div>
+        <div class="lore-card-desc">The dominant race across the world, with most pirates and marines being human. The Celestial Dragons are a privileged subset who claim divine descent from the world's founders.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🐟 Fish-Men</div>
+        <div class="lore-card-sub">Underwater Race</div>
+        <div class="lore-card-desc">Ten times stronger than humans, capable of breathing underwater. Fish-Man Karate uses water in the environment itself. Long-standing discrimination from humans has created deep societal tensions.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🧜 Merfolk</div>
+        <div class="lore-card-sub">Ocean People</div>
+        <div class="lore-card-desc">Beautiful sea-dwellers with fish tails. Mermaids are considered the fastest swimmers in the ocean. Princess Shirahoshi is the Ancient Weapon Poseidon — capable of commanding all Sea Kings with her voice.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🦷 Giants</div>
+        <div class="lore-card-sub">Elbaf Warrior Race</div>
+        <div class="lore-card-desc">Massively powerful beings from the nation of Elbaf. Their warriors are considered the world's strongest military force. Dorry and Brogy — two legendary Giant Warriors — are recurring characters. Elbaf is the setting of an upcoming arc.</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">🐰 Minks</div>
+        <div class="lore-card-sub">Zou Island Tribe</div>
+        <div class="lore-card-desc">Animal-humanoid beings who live atop a living elephant called Zunesha. They can all use Electro — innate electricity from their fur. All Minks are natural warriors, dramatically more powerful by night under the moon (Sulong form).</div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-card-title">👼 Celestial Dragons</div>
+        <div class="lore-card-sub">World Nobles</div>
+        <div class="lore-card-desc">Descendants of the 20 kings who founded the World Government. They wear bubbles to avoid breathing the same air as commoners. Virtually untouchable by law — striking one summons an Admiral. Deeply despised by nearly every character in the story.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILMS -->
+<section class="section" id="films">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Cinema</span>
+      <h2 class="section-title">Films & Specials</h2>
+      <p class="section-sub">One Piece has produced 15 theatrical films, ranging from early standalone adventures to modern canon-adjacent blockbusters.</p>
+    </div>
+    <div class="films-grid reveal">
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2000</div>
+        <div class="film-title">One Piece: The Movie</div>
+        <div class="film-note">East Blue era standalone</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2001</div>
+        <div class="film-title">Clockwork Island Adventure</div>
+        <div class="film-note">Full crew adventure</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2004</div>
+        <div class="film-title">Dead End Adventure</div>
+        <div class="film-note">Fan favourite early film</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2006</div>
+        <div class="film-title">Baron Omatsuri and the Secret Island</div>
+        <div class="film-note">Dark, Satoshi Kon-style horror</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2009</div>
+        <div class="film-title">Strong World</div>
+        <div class="film-note">Oda-written — first canon film</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">🎬</div>
+        <div class="film-year">2012</div>
+        <div class="film-title">Film Z</div>
+        <div class="film-note">Post-timeskip — Admiral villain Z</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">⭐</div>
+        <div class="film-year">2016</div>
+        <div class="film-title">Film Gold</div>
+        <div class="film-note">Gran Tesoro casino cruise</div>
+      </div>
+      <div class="film-card">
+        <div class="film-icon">⭐</div>
+        <div class="film-year">2019</div>
+        <div class="film-title">Stampede</div>
+        <div class="film-note">25th anniversary — all-star cast</div>
+      </div>
+      <div class="film-card" style="border-color:rgba(200,134,10,0.5);background:linear-gradient(135deg,#fffdf5,#fff8e0);">
+        <div class="film-icon">🏆</div>
+        <div class="film-year">2022</div>
+        <div class="film-title">Film Red</div>
+        <div class="film-note">Canon — Shanks' daughter Uta; ¥20 billion worldwide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="section" id="themes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">What Makes It Great</span>
+      <h2 class="section-title">Core Themes</h2>
+      <p class="section-sub">One Piece resonates worldwide because it goes far deeper than a typical pirate adventure.</p>
+    </div>
+    <div class="themes-grid reveal">
+      <div class="theme-card tc-freedom">
+        <span class="theme-icon">🌊</span>
+        <div class="theme-name">Freedom</div>
+        <div class="theme-desc">The sea represents absolute freedom. Luffy fights not to rule but to live as he chooses. The World Government's systems of control — slavery, censorship, absolute justice — are the antithesis of everything the series celebrates.</div>
+      </div>
+      <div class="theme-card tc-friendship">
+        <span class="theme-icon">🤝</span>
+        <div class="theme-name">Friendship & Bonds</div>
+        <div class="theme-desc">Every Straw Hat crewmate has been saved by Luffy — not physically, but emotionally. He fights for the freedom to live. The bond between the crew is One Piece's emotional engine. "I can't use a sword. I can't navigate. I can't cook. I can't lie." — Luffy on why he needs his crew.</div>
+      </div>
+      <div class="theme-card tc-justice">
+        <span class="theme-icon">⚖️</span>
+        <div class="theme-name">Justice & Corruption</div>
+        <div class="theme-desc">One Piece constantly asks: who decides what is justice? The World Government proclaims absolute authority but is built on atrocity. Pirates are often shown as freer, more humane, and more honest than the institutions that hunt them.</div>
+      </div>
+      <div class="theme-card tc-dreams">
+        <span class="theme-icon">⭐</span>
+        <div class="theme-name">Dreams & Inheritance</div>
+        <div class="theme-desc">Every major character carries a dream — not just a goal, but an inherited will. Luffy inherits Roger's will. Zoro inherits Kuina's. Chopper inherits Hiluluk's. Dreams don't die with the dreamer; they pass to whoever chooses to carry them forward.</div>
+      </div>
+      <div class="theme-card tc-identity">
+        <span class="theme-icon">🪞</span>
+        <div class="theme-name">Identity & Belonging</div>
+        <div class="theme-desc">Fish-Men face racism. Robin was hunted for existing. Nami was enslaved. Chopper was rejected for being neither reindeer nor human. One Piece is deeply concerned with who gets to belong — and challenges every system that says some don't.</div>
+      </div>
+      <div class="theme-card tc-history">
+        <span class="theme-icon">📜</span>
+        <div class="theme-name">History & Truth</div>
+        <div class="theme-desc">The Void Century, Poneglyphs, and Robin's quest reflect how history is always written by the victors. One Piece asks whether truth buried by power can be recovered — and whether it can change everything when it is.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTION -->
+<section class="section" id="production">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Behind the Scenes</span>
+      <h2 class="section-title">Production & Legacy</h2>
+    </div>
+    <div class="prod-grid reveal">
+      <div class="prod-card">
+        <div class="prod-title">📊 Publishing Record</div>
+        <ul class="prod-list">
+          <li class="prod-item"><span class="prod-item-key">Best-selling manga series</span><span class="prod-item-val">All time (Guinness)</span></li>
+          <li class="prod-item"><span class="prod-item-key">First volume print (Vol.1)</span><span class="prod-item-val">200,000 copies</span></li>
+          <li class="prod-item"><span class="prod-item-key">Volume 67 first printing</span><span class="prod-item-val">4.05 million copies</span></li>
+          <li class="prod-item"><span class="prod-item-key">Average weekly chapter</span><span class="prod-item-val">17 pages</span></li>
+          <li class="prod-item"><span class="prod-item-key">Jump issues per year</span><span class="prod-item-val">~45 chapters</span></li>
+          <li class="prod-item"><span class="prod-item-key">Countries licensed in</span><span class="prod-item-val">60+</span></li>
+        </ul>
+      </div>
+      <div class="prod-card">
+        <div class="prod-title">🎨 Creator — Eiichiro Oda</div>
+        <ul class="prod-list">
+          <li class="prod-item"><span class="prod-item-key">Born</span><span class="prod-item-val">January 1, 1975 — Kumamoto</span></li>
+          <li class="prod-item"><span class="prod-item-key">Began One Piece at age</span><span class="prod-item-val">22 years old</span></li>
+          <li class="prod-item"><span class="prod-item-key">Inspirations</span><span class="prod-item-val">Dragon Ball, Akira Toriyama</span></li>
+          <li class="prod-item"><span class="prod-item-key">Sleep schedule</span><span class="prod-item-val">3 hours/night during serialization</span></li>
+          <li class="prod-item"><span class="prod-item-key">Concept age</span><span class="prod-item-val">Planned since childhood</span></li>
+          <li class="prod-item"><span class="prod-item-key">Net worth (estimated)</span><span class="prod-item-val">~$200M USD</span></li>
+        </ul>
+      </div>
+      <div class="prod-card">
+        <div class="prod-title">📺 Anime Production</div>
+        <ul class="prod-list">
+          <li class="prod-item"><span class="prod-item-key">Studio</span><span class="prod-item-val">Toei Animation</span></li>
+          <li class="prod-item"><span class="prod-item-key">Anime start date</span><span class="prod-item-val">October 20, 1999</span></li>
+          <li class="prod-item"><span class="prod-item-key">Original director</span><span class="prod-item-val">Kounosuke Uda</span></li>
+          <li class="prod-item"><span class="prod-item-key">Current episodes</span><span class="prod-item-val">1100+ and ongoing</span></li>
+          <li class="prod-item"><span class="prod-item-key">Broadcast</span><span class="prod-item-val">Fuji TV — weekly Sunday</span></li>
+          <li class="prod-item"><span class="prod-item-key">OST composers</span><span class="prod-item-val">Kohei Tanaka, Shiro Hamaguchi</span></li>
+        </ul>
+      </div>
+      <div class="prod-card">
+        <div class="prod-title">🌍 Cultural Impact</div>
+        <ul class="prod-list">
+          <li class="prod-item"><span class="prod-item-key">Netflix Live Action (2023)</span><span class="prod-item-val">Global hit — Season 2 confirmed</span></li>
+          <li class="prod-item"><span class="prod-item-key">Film Red box office</span><span class="prod-item-val">¥20.2 billion (Japan record)</span></li>
+          <li class="prod-item"><span class="prod-item-key">Annual merchandise revenue</span><span class="prod-item-val">$700M+ USD</span></li>
+          <li class="prod-item"><span class="prod-item-key">Theme park presence</span><span class="prod-item-val">Universal Studios Japan</span></li>
+          <li class="prod-item"><span class="prod-item-key">MyAnimeList score</span><span class="prod-item-val">8.72 / 10</span></li>
+          <li class="prod-item"><span class="prod-item-key">Streaming</span><span class="prod-item-val">Crunchyroll, Netflix</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>☠️ &nbsp;&nbsp; <strong>ONE PIECE GRAND LINE ENCYCLOPEDIA</strong> &nbsp;&nbsp; ☠️</div>
+  <div>Manga & Story by <strong>Eiichiro Oda</strong> — Published by <strong>Shueisha</strong> / Weekly Shōnen Jump — 1997 to Present</div>
+  <div>Anime by <strong>Toei Animation</strong> — Licensed by <strong>Viz Media</strong> / Crunchyroll</div>
+  <div style="margin-top:0.5rem;opacity:0.45">Fan-made reference page — not affiliated with Shueisha, Toei Animation, or any official One Piece property</div>
+</footer>
+
+<script>
+let activeGroup = 'all';
+
+function filterChars() {
+  const q = document.getElementById('charSearch').value.toLowerCase();
+  document.querySelectorAll('.char-card').forEach(c => {
+    const nameMatch = c.dataset.name.includes(q);
+    const groupMatch = activeGroup === 'all' || c.dataset.group === activeGroup;
+    c.classList.toggle('hidden', !(nameMatch && groupMatch));
+  });
+}
+
+function filterGroup(g, btn) {
+  activeGroup = g;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterChars();
+}
+
+function showLore(id, btn) {
+  document.querySelectorAll('.lore-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lore-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('lore-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
