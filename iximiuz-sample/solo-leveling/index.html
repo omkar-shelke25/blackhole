@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solo Leveling Universe — Deep Encyclopedia</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050508;--bg2:#0a0a12;--bg3:#0f0f1a;--bg4:#070710;
+  --accent:#7c3aed;--accent2:#a855f7;--accent3:#c084fc;
+  --blue:#3b82f6;--blue2:#60a5fa;--red:#ef4444;--gold:#f59e0b;
+  --text:#e2e8f0;--muted:#94a3b8;--muted2:#64748b;
+  --card:rgba(255,255,255,0.035);--card2:rgba(255,255,255,0.06);
+  --border:rgba(124,58,237,0.22);--border2:rgba(124,58,237,0.4);
+  --font-d:'Orbitron',monospace;--font-b:'Rajdhani',sans-serif;--font-s:'Poppins',sans-serif;
+}
+.theme-purple{
+  --bg:#0c0014;--bg2:#120020;--bg3:#18002e;--bg4:#0a000f;
+  --accent:#a855f7;--accent2:#c084fc;--accent3:#e879f9;
+  --blue:#7c3aed;--blue2:#a855f7;
+  --card:rgba(168,85,247,0.05);--border:rgba(192,132,252,0.25);--border2:rgba(192,132,252,0.45);
+}
+.theme-blue{
+  --bg:#00070e;--bg2:#000d1a;--bg3:#001526;--bg4:#000509;
+  --accent:#0ea5e9;--accent2:#38bdf8;--accent3:#7dd3fc;
+  --blue:#6366f1;--blue2:#818cf8;
+  --card:rgba(14,165,233,0.05);--border:rgba(56,189,248,0.22);--border2:rgba(56,189,248,0.45);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.6;overflow-x:hidden;transition:background .5s,color .5s}
+a{color:var(--accent2);text-decoration:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.7rem 2rem;background:rgba(5,5,8,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-logo{font-family:var(--font-d);font-size:.9rem;font-weight:700;letter-spacing:.1em;background:linear-gradient(135deg,var(--accent2),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.2rem;list-style:none;font-family:var(--font-d);font-size:.55rem;letter-spacing:.08em}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--accent2)}
+.nav-themes{display:flex;gap:.5rem;flex-shrink:0}
+.t-btn{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .2s,border-color .2s}
+.t-btn:hover,.t-btn.active{border-color:#fff;transform:scale(1.2)}
+.t-btn.td{background:linear-gradient(135deg,#7c3aed,#1e1b4b)}
+.t-btn.tp{background:linear-gradient(135deg,#c084fc,#6b21a8)}
+.t-btn.tb{background:linear-gradient(135deg,#38bdf8,#0c4a6e)}
+@media(max-width:960px){.nav-links{display:none}}
+
+#cvs{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+section{position:relative;z-index:1}
+.si{max-width:1200px;margin:0 auto;padding:5.5rem 2rem}
+.slabel{font-family:var(--font-d);font-size:.55rem;letter-spacing:.28em;color:var(--accent2);text-transform:uppercase;margin-bottom:.4rem}
+.stitle{font-family:var(--font-d);font-size:clamp(1.5rem,4vw,2.7rem);font-weight:700;background:linear-gradient(135deg,#fff 25%,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.9rem;line-height:1.15}
+.sdesc{font-family:var(--font-s);font-size:.95rem;color:var(--muted);max-width:720px;margin-bottom:2.8rem;line-height:1.85}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+.fi{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero-bg-slider{position:absolute;inset:0;z-index:0}
+.hero-bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease}
+.hero-bg-slide.active{opacity:1}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,8,.55) 0%,rgba(5,5,8,.7) 60%,var(--bg) 100%);z-index:1}
+.hero-in{position:relative;z-index:2;padding:2rem}
+.hero-eye{font-family:var(--font-d);font-size:.55rem;letter-spacing:.35em;color:var(--accent2);margin-bottom:1.4rem;opacity:.8}
+.hero-t{font-family:var(--font-d);font-size:clamp(2.4rem,8vw,5.8rem);font-weight:900;line-height:1.03;background:linear-gradient(135deg,#fff 0%,var(--accent3) 50%,var(--blue2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.9rem;filter:drop-shadow(0 0 45px rgba(124,58,237,.45))}
+.hero-s{font-family:var(--font-d);font-size:clamp(.8rem,2.2vw,1.2rem);letter-spacing:.18em;color:var(--muted);margin-bottom:.8rem}
+.hero-lore{font-family:var(--font-s);font-size:.9rem;color:var(--muted2);max-width:560px;margin:0 auto 2.2rem;line-height:1.9;font-style:italic}
+.hbtn{display:inline-block;padding:.85rem 2.2rem;font-family:var(--font-d);font-size:.7rem;letter-spacing:.14em;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--accent),var(--blue));border:none;border-radius:4px;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 0 28px rgba(124,58,237,.55);margin:0 .4rem;text-decoration:none}
+.hbtn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+.hbtn:hover{transform:translateY(-2px);box-shadow:0 0 48px rgba(124,58,237,.75)}
+.hbtn:hover::after{opacity:1}
+.hbtn.ghost{background:transparent;border:1px solid var(--border);box-shadow:none;color:var(--muted)}
+.hbtn.ghost:hover{border-color:var(--accent2);color:var(--accent2);box-shadow:0 0 20px rgba(124,58,237,.3)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-val{font-family:var(--font-d);font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hstat-label{font-family:var(--font-d);font-size:.5rem;letter-spacing:.15em;color:var(--muted);margin-top:.15rem}
+.hero-scr{margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:var(--font-d);font-size:.5rem;letter-spacing:.2em;color:var(--muted);opacity:.45;animation:bnc 2s infinite}
+.hscrl{width:1px;height:36px;background:linear-gradient(180deg,var(--accent2),transparent)}
+@keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* hero image dots */
+.hero-img-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:3}
+.hidot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;border:1px solid rgba(255,255,255,.5);transition:background .3s,transform .2s}
+.hidot.active{background:var(--accent2);transform:scale(1.3)}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2)}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.aq{border-left:3px solid var(--accent);padding:1.4rem;background:var(--card);border-radius:0 8px 8px 0;font-family:var(--font-s);font-style:italic;font-size:.95rem;color:var(--accent3);line-height:1.85;margin-bottom:1.4rem}
+.afacts{display:flex;flex-direction:column;gap:.9rem}
+.aitem{display:flex;align-items:flex-start;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;transition:border-color .2s,transform .2s}
+.aitem:hover{border-color:var(--accent2);transform:translateX(3px)}
+.aicon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.alabel{font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;color:var(--accent2);margin-bottom:.2rem}
+.aval{font-family:var(--font-s);font-size:.85rem;color:var(--text);line-height:1.6}
+.world-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.8rem}
+.world-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.1rem;transition:transform .2s,border-color .2s}
+.world-card:hover{transform:translateY(-3px);border-color:var(--accent2)}
+.wc-title{font-family:var(--font-d);font-size:.62rem;font-weight:600;letter-spacing:.08em;color:var(--accent2);margin-bottom:.4rem}
+.wc-body{font-family:var(--font-s);font-size:.82rem;color:var(--muted);line-height:1.7}
+@media(max-width:768px){.about-g{grid-template-columns:1fr}}
+
+/* ── JINWOO ── */
+#jinwoo{background:var(--bg3)}
+.phead{display:flex;align-items:flex-start;gap:2.5rem;margin-bottom:2.8rem;flex-wrap:wrap}
+.pav{width:148px;height:148px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.3),rgba(59,130,246,.2));border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:4.5rem;flex-shrink:0;box-shadow:0 0 40px rgba(124,58,237,.45);position:relative}
+.pav::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(124,58,237,.25);animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pinfo h2{font-family:var(--font-d);font-size:2rem;font-weight:900;color:#fff;margin-bottom:.35rem;line-height:1.15}
+.pinfo h2 small{font-size:1rem;color:var(--muted);font-weight:400}
+.ptags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.ptag{font-family:var(--font-d);font-size:.5rem;letter-spacing:.09em;padding:.28rem .65rem;border-radius:20px;border:1px solid var(--accent);color:var(--accent2);background:rgba(124,58,237,.08)}
+.bio{font-family:var(--font-s);font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.8;margin-bottom:1rem}
+.rank-prog{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin-top:.8rem}
+.rs{font-family:var(--font-d);font-size:.55rem;padding:.35rem .65rem;border-radius:4px;background:var(--card);border:1px solid var(--border);color:var(--muted);white-space:nowrap;transition:all .2s}
+.rs.cur{background:linear-gradient(135deg,var(--accent),var(--blue));border-color:var(--accent);color:#fff;box-shadow:0 0 14px rgba(124,58,237,.6)}
+.rarr{color:var(--accent2);font-size:.65rem}
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.1rem;margin-bottom:2.5rem}
+.ab-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default;position:relative;overflow:hidden}
+.ab-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.ab-card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(124,58,237,.3);border-color:var(--accent2)}
+.ab-icon{font-size:1.7rem;margin-bottom:.6rem}
+.ab-name{font-family:var(--font-d);font-size:.65rem;font-weight:600;letter-spacing:.08em;color:var(--accent2);margin-bottom:.3rem}
+.ab-tier{font-family:var(--font-d);font-size:.48rem;letter-spacing:.12em;color:var(--muted2);margin-bottom:.5rem}
+.ab-desc{font-family:var(--font-s);font-size:.82rem;color:var(--muted);line-height:1.7}
+.weap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem}
+.weap-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .2s,border-color .2s}
+.weap-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.weap-icon{font-size:2rem;flex-shrink:0}
+.weap-name{font-family:var(--font-d);font-size:.68rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.weap-grade{font-family:var(--font-d);font-size:.5rem;letter-spacing:.12em;color:var(--gold);margin-bottom:.4rem}
+.weap-desc{font-family:var(--font-s);font-size:.82rem;color:var(--muted);line-height:1.7}
+
+/* ── RANKS ── */
+#ranks{background:var(--bg2)}
+.ranks-wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem}
+.ritem{display:flex;align-items:flex-start;gap:1.4rem;padding:1.1rem 1.6rem;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.ritem::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rc,var(--accent))}
+.ritem:hover{border-color:var(--rc,var(--accent));transform:translateX(4px)}
+.ritem.open{background:rgba(124,58,237,.055)}
+.rbadge{font-family:var(--font-d);font-size:1.1rem;font-weight:900;color:var(--rc);width:56px;text-align:center;flex-shrink:0;padding-top:.1rem}
+.rinfo{flex:1}
+.rtitle{font-family:var(--font-d);font-size:.72rem;font-weight:600;letter-spacing:.07em;color:var(--text);margin-bottom:.2rem}
+.rsub{font-family:var(--font-d);font-size:.52rem;letter-spacing:.1em;color:var(--muted2);margin-bottom:.3rem}
+.rdet{font-family:var(--font-s);font-size:.85rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .42s ease,padding .3s;line-height:1.75}
+.ritem.open .rdet{max-height:300px;padding-top:.5rem}
+.rchev{font-size:.65rem;color:var(--muted);transition:transform .3s;flex-shrink:0;margin-top:.2rem}
+.ritem.open .rchev{transform:rotate(90deg)}
+.rank-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
+.rex{font-family:var(--font-d);font-size:.48rem;letter-spacing:.07em;padding:.2rem .55rem;border-radius:3px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:var(--accent3)}
+
+/* ── SYSTEM ── */
+#system{background:var(--bg3)}
+.sys-win{max-width:820px;margin:0 auto;background:linear-gradient(135deg,rgba(0,0,0,.88),rgba(8,8,22,.93));border:1px solid rgba(124,58,237,.55);border-radius:12px;overflow:hidden;box-shadow:0 0 70px rgba(124,58,237,.22),inset 0 0 50px rgba(124,58,237,.04)}
+.sys-hd{background:linear-gradient(90deg,rgba(124,58,237,.3),rgba(59,130,246,.18));padding:.75rem 1.4rem;display:flex;align-items:center;gap:1rem;border-bottom:1px solid rgba(124,58,237,.28)}
+.sys-ttl{font-family:var(--font-d);font-size:.7rem;letter-spacing:.2em;color:var(--accent2);font-weight:700}
+.sys-dots{display:flex;gap:.35rem;margin-left:auto}
+.sdot{width:7px;height:7px;border-radius:50%}
+.sys-bd{padding:1.8rem}
+.sys-tabs{display:flex;gap:.5rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.stab{font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;padding:.4rem .9rem;border-radius:4px;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;background:transparent}
+.stab:hover,.stab.active{background:rgba(124,58,237,.15);border-color:var(--accent2);color:var(--accent2)}
+.sys-panel{display:none}
+.sys-panel.active{display:block}
+.sys-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;margin-bottom:1.4rem}
+.scard{background:rgba(124,58,237,.055);border:1px solid rgba(124,58,237,.18);border-radius:8px;padding:1.1rem;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.scard-t{font-family:var(--font-d);font-size:.55rem;letter-spacing:.15em;color:var(--accent2);margin-bottom:.4rem}
+.scard-v{font-family:var(--font-d);font-size:1rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.scard-d{font-family:var(--font-s);font-size:.8rem;color:var(--muted);line-height:1.65}
+.pen-box{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.28);border-radius:8px;padding:1.1rem;color:#fca5a5;font-family:var(--font-s);font-size:.85rem;line-height:1.7}
+.pen-box strong{color:#ef4444;font-family:var(--font-d);font-size:.6rem;letter-spacing:.1em;display:block;margin-bottom:.4rem}
+.skill-table{width:100%;border-collapse:collapse}
+.skill-table th{font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;color:var(--accent2);padding:.6rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+.skill-table td{font-family:var(--font-s);font-size:.82rem;color:var(--muted);padding:.65rem 1rem;border-bottom:1px solid rgba(124,58,237,.08);vertical-align:top;line-height:1.6}
+.skill-table td:first-child{color:var(--text);font-weight:500}
+.stier{display:inline-block;font-family:var(--font-d);font-size:.45rem;letter-spacing:.08em;padding:.15rem .4rem;border-radius:3px}
+.stier.s{background:rgba(124,58,237,.2);color:var(--accent2)}
+.stier.a{background:rgba(251,146,60,.15);color:#fb923c}
+.stier.p{background:rgba(96,165,250,.12);color:var(--blue2)}
+
+/* ── DUNGEONS ── */
+#dungeons{background:var(--bg2)}
+.dung-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.dcard{background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.dcard:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(0,0,0,.5)}
+.dcard-hd{height:6px;background:var(--dc,var(--accent))}
+.dcard-body{padding:1.3rem}
+.dgrade{font-family:var(--font-d);font-size:.55rem;letter-spacing:.18em;color:var(--dc,var(--accent));margin-bottom:.4rem}
+.dname{font-family:var(--font-d);font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.drow{display:flex;justify-content:space-between;font-family:var(--font-s);font-size:.8rem;margin-bottom:.25rem}
+.drow span:first-child{color:var(--muted2)}
+.drow span:last-child{color:var(--text)}
+.dthreat{margin-top:.8rem;font-family:var(--font-s);font-size:.8rem;color:var(--muted);line-height:1.6;border-top:1px solid var(--border);padding-top:.7rem}
+
+/* ── GUILDS ── */
+#guilds{background:var(--bg3)}
+.guilds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
+.gc{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:1.5rem;transition:transform .25s,border-color .25s}
+.gc:hover{transform:translateY(-4px);border-color:var(--accent2)}
+.gc-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.gc-icon{font-size:2rem;width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(59,130,246,.15));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gc-name{font-family:var(--font-d);font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.gc-country{font-family:var(--font-d);font-size:.52rem;letter-spacing:.1em;color:var(--accent2)}
+.gc-info{font-family:var(--font-s);font-size:.85rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem}
+.gc-members{display:flex;flex-wrap:wrap;gap:.35rem}
+.gcm{font-family:var(--font-d);font-size:.48rem;letter-spacing:.07em;padding:.2rem .55rem;border-radius:3px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:var(--accent3)}
+
+/* ── SHADOWS ── */
+#shadows{background:var(--bg2)}
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.3rem}
+.shcard{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.shcard:hover{transform:translateY(-5px);box-shadow:0 12px 38px rgba(0,0,0,.55)}
+.shbanner{height:88px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;overflow:hidden}
+.shbanner::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.05),transparent 70%)}
+.shbody{padding:1.3rem}
+.shname{font-family:var(--font-d);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.shrole{font-family:var(--font-d);font-size:.52rem;letter-spacing:.14em;color:var(--accent2);margin-bottom:.5rem}
+.shgrade{display:inline-block;font-family:var(--font-d);font-size:.48rem;letter-spacing:.1em;padding:.2rem .55rem;border-radius:3px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--accent3);margin-bottom:.8rem}
+.shexp{font-family:var(--font-s);font-size:.83rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .42s ease;line-height:1.75}
+.shcard.open .shexp{max-height:500px}
+.shtog{font-family:var(--font-d);font-size:.52rem;letter-spacing:.09em;color:var(--accent2);cursor:pointer;margin-top:.8rem;display:inline-block;border-bottom:1px solid transparent;transition:border-color .2s}
+.shtog:hover{border-color:var(--accent2)}
+.sh-stat{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+.shs{font-family:var(--font-d);font-size:.46rem;letter-spacing:.08em;padding:.18rem .5rem;border-radius:3px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted)}
+
+/* ── MONARCHS ── */
+#monarchs{background:var(--bg3)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+.elab{font-family:var(--font-d);font-size:.56rem;letter-spacing:.2em;color:var(--accent2);padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:.8rem}
+.elist{display:flex;flex-direction:column;gap:.7rem}
+.eitem{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer}
+.eitem:hover{border-color:var(--accent2);transform:translateX(3px)}
+.eitem-hd{display:flex;align-items:center;gap:1rem;padding:.9rem 1rem}
+.eicon{font-size:1.3rem;flex-shrink:0}
+.ename{font-family:var(--font-d);font-size:.68rem;font-weight:600;color:#fff}
+.erank{font-family:var(--font-d);font-size:.5rem;letter-spacing:.1em;color:var(--accent2)}
+.echev{margin-left:auto;font-size:.6rem;color:var(--muted);transition:transform .3s}
+.eitem.open .echev{transform:rotate(90deg)}
+.edet{font-family:var(--font-s);font-size:.83rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .42s ease,padding .3s;line-height:1.75;padding:0 1rem}
+.eitem.open .edet{max-height:400px;padding:.7rem 1rem .9rem}
+.ruler-intro{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.1rem;font-family:var(--font-s);font-size:.87rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+
+/* ── TIMELINE ── */
+#timeline{background:var(--bg2)}
+.tl-wrap{position:relative;max-width:840px;margin:0 auto}
+.tl-wrap::before{content:'';position:absolute;left:27px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),rgba(124,58,237,.1))}
+.titem{display:flex;align-items:flex-start;gap:1.4rem;padding-bottom:1.4rem;cursor:pointer}
+.tnode{width:54px;height:54px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:.62rem;font-weight:700;color:var(--muted);flex-shrink:0;transition:all .3s;position:relative;z-index:1}
+.titem.active .tnode,.titem:hover .tnode{border-color:var(--accent);color:var(--accent2);box-shadow:0 0 18px rgba(124,58,237,.5)}
+.tcont{flex:1;padding-top:.65rem}
+.tname{font-family:var(--font-d);font-size:.75rem;font-weight:600;letter-spacing:.07em;color:var(--text);margin-bottom:.25rem;transition:color .2s}
+.titem.active .tname,.titem:hover .tname{color:var(--accent2)}
+.tdet{font-family:var(--font-s);font-size:.85rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .42s ease;line-height:1.75}
+.titem.active .tdet,.titem:hover .tdet{max-height:300px}
+.tpills{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.tpill{font-family:var(--font-d);font-size:.46rem;letter-spacing:.08em;padding:.18rem .5rem;border-radius:3px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:var(--accent3)}
+
+/* ── BATTLES ── */
+#battles{background:var(--bg3)}
+.bat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem}
+.bcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:default}
+.bcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--blue))}
+.bcard:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(124,58,237,.28)}
+.b-rating{position:absolute;top:1rem;right:1rem;font-family:var(--font-d);font-size:.5rem;letter-spacing:.1em;padding:.2rem .55rem;border-radius:20px;background:rgba(124,58,237,.15);border:1px solid var(--border);color:var(--accent2)}
+.bicon{font-size:2.2rem;margin-bottom:.9rem}
+.bvs{font-family:var(--font-d);font-size:.52rem;letter-spacing:.2em;color:var(--accent2);margin-bottom:.4rem}
+.btitle{font-family:var(--font-d);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.7rem}
+.bdesc{font-family:var(--font-s);font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem}
+.b-stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.9rem}
+.bstat{background:rgba(124,58,237,.06);border:1px solid var(--border);border-radius:6px;padding:.5rem .7rem}
+.bstat-l{font-family:var(--font-d);font-size:.47rem;letter-spacing:.1em;color:var(--muted2);margin-bottom:.15rem}
+.bstat-v{font-family:var(--font-d);font-size:.68rem;font-weight:600;color:var(--text)}
+.boutcome{font-family:var(--font-d);font-size:.52rem;letter-spacing:.1em;padding:.35rem .75rem;border-radius:20px;display:inline-block;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.3);color:var(--accent2)}
+
+/* ── STATS ── */
+#stats{background:var(--bg2)}
+.stat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1.1rem;max-width:940px;margin:0 auto}
+.stcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem 1.3rem;text-align:center;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.stcard:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(124,58,237,.24)}
+.sticon{font-size:1.8rem;margin-bottom:.6rem}
+.stlabel{font-family:var(--font-d);font-size:.52rem;letter-spacing:.15em;color:var(--accent2);margin-bottom:.5rem}
+.stval{font-family:var(--font-d);font-size:2.1rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stbw{margin-top:.7rem;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.stb{height:100%;background:linear-gradient(90deg,var(--accent),var(--blue2));border-radius:2px;width:0%;transition:width 1.5s ease}
+.stdesc{font-family:var(--font-s);font-size:.72rem;color:var(--muted2);margin-top:.5rem;line-height:1.5}
+
+/* ── QUOTES ── */
+#quotes{background:var(--bg3)}
+.q-wrap{max-width:800px;margin:0 auto;text-align:center}
+.qdisp{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem}
+.qmark{font-family:Georgia,serif;font-size:4.5rem;color:var(--accent);opacity:.13;line-height:1;margin-bottom:-1.4rem;user-select:none}
+.qtext{font-family:var(--font-s);font-size:clamp(1rem,2.8vw,1.4rem);font-style:italic;color:var(--text);line-height:1.75;opacity:1;transition:opacity .5s}
+.qtext.fade{opacity:0}
+.qspeak{font-family:var(--font-d);font-size:.55rem;letter-spacing:.2em;color:var(--accent2);transition:opacity .5s}
+.qdots{display:flex;gap:.45rem;justify-content:center;margin-top:1.8rem}
+.qdot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .3s,transform .2s}
+.qdot.active{background:var(--accent2);transform:scale(1.3)}
+
+/* ── GALLERY ── */
+#gallery{background:var(--bg2)}
+.gal-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.git{aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:1px solid var(--border);cursor:pointer;position:relative;background:var(--card);transition:transform .3s,box-shadow .3s}
+.git:hover{transform:scale(1.03);box-shadow:0 10px 28px rgba(0,0,0,.55)}
+.gimg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.8rem;transition:transform .4s}
+.git:hover .gimg{transform:scale(1.08)}
+.gcap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);padding:.9rem 1rem .65rem;font-family:var(--font-d);font-size:.56rem;letter-spacing:.09em;color:#fff;transform:translateY(100%);transition:transform .3s}
+.git:hover .gcap{transform:translateY(0)}
+.lbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.93);align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+.lbox.open{display:flex}
+.lbox-in{max-width:700px;width:92%;text-align:center}
+.lbox-img{font-size:7rem;display:block;margin:0 auto 1.3rem}
+.lbox-title{font-family:var(--font-d);font-size:.95rem;letter-spacing:.1em;color:#fff;margin-bottom:.5rem}
+.lbox-desc{font-family:var(--font-s);color:var(--muted);font-size:.88rem;line-height:1.75}
+.lbox-close{position:absolute;top:1.4rem;right:1.5rem;font-size:1.4rem;color:var(--muted);cursor:pointer;background:none;border:none;transition:color .2s}
+.lbox-close:hover{color:#fff}
+
+/* ── FACTS ── */
+#facts{background:var(--bg3)}
+.facts-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;display:flex;gap:.9rem;align-items:flex-start;transition:transform .2s,border-color .2s}
+.fcard:hover{transform:translateY(-3px);border-color:var(--accent2)}
+.fnum{font-family:var(--font-d);font-size:1.1rem;font-weight:900;color:var(--accent2);opacity:.45;flex-shrink:0;line-height:1;min-width:32px}
+.ftext{font-family:var(--font-s);font-size:.85rem;color:var(--muted);line-height:1.75}
+.ftext strong{color:var(--text);font-weight:600}
+
+#stbtn{position:fixed;bottom:1.8rem;right:1.8rem;width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(18px);transition:opacity .3s,transform .3s,box-shadow .2s;box-shadow:0 0 18px rgba(124,58,237,.55);font-size:.9rem;border:none;color:#fff}
+#stbtn.vis{opacity:1;transform:translateY(0)}
+#stbtn:hover{box-shadow:0 0 28px rgba(124,58,237,.85)}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;position:relative;z-index:1}
+.flogo{font-family:var(--font-d);font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--accent2),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.9rem}
+.fdis{font-family:var(--font-s);font-size:.78rem;color:var(--muted);max-width:580px;margin:0 auto .9rem;line-height:1.75}
+.fcopy{font-family:var(--font-d);font-size:.5rem;letter-spacing:.15em;color:rgba(148,163,184,.35)}
+</style>
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+<button id="stbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="lbox" id="lbox" onclick="lbClose(event)">
+  <button class="lbox-close" onclick="document.getElementById('lbox').classList.remove('open')">✕</button>
+  <div class="lbox-in">
+    <span class="lbox-img" id="lbimg"></span>
+    <div class="lbox-title" id="lbtitle"></div>
+    <div class="lbox-desc" id="lbdesc"></div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo">⚔ SOLO LEVELING UNIVERSE</div>
+  <ul class="nav-links">
+    <li><a href="#about">World</a></li>
+    <li><a href="#jinwoo">Jinwoo</a></li>
+    <li><a href="#ranks">Ranks</a></li>
+    <li><a href="#system">System</a></li>
+    <li><a href="#dungeons">Dungeons</a></li>
+    <li><a href="#guilds">Guilds</a></li>
+    <li><a href="#shadows">Shadows</a></li>
+    <li><a href="#monarchs">Monarchs</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#battles">Battles</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <div class="nav-themes">
+    <div class="t-btn td active" title="Dark" onclick="setTheme('dark',this)"></div>
+    <div class="t-btn tp" title="Purple" onclick="setTheme('purple',this)"></div>
+    <div class="t-btn tb" title="Blue" onclick="setTheme('blue',this)"></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Background image slideshow -->
+  <div class="hero-bg-slider" id="heroBgSlider">
+    <div class="hero-bg-slide active" style="background-image:url('https://4kwallpapers.com/images/walls/thumbs_3t/24719.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('https://4kwallpapers.com/images/walls/thumbs_3t/22581.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('https://4kwallpapers.com/images/walls/thumbs_3t/15351.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('https://4kwallpapers.com/images/walls/thumbs_3t/15598.jpg')"></div>
+  </div>
+  <div class="hero-bg-overlay"></div>
+
+  <div class="hero-in">
+    <div class="hero-eye">⚔ &nbsp; THE OFFICIAL FAN ENCYCLOPEDIA &nbsp; ⚔</div>
+    <h1 class="hero-t">SOLO LEVELING<br>UNIVERSE</h1>
+    <p class="hero-s">A R I S E &nbsp;·&nbsp; F R O M &nbsp;·&nbsp; T H E &nbsp;·&nbsp; S H A D O W S</p>
+    <p class="hero-lore">In a world cracked open by Gates, where monsters pour through into reality and only Hunters stand between humanity and extinction — one man received a gift that should have been impossible. From the weakest of all, he became the absolute strongest.</p>
+    <div>
+      <button class="hbtn" onclick="scrollToSection('about')">Explore the Universe</button>
+      <button class="hbtn ghost" onclick="scrollToSection('jinwoo')">Enter the Dungeon</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-val">130,000+</div><div class="hstat-label">Shadow Soldiers</div></div>
+      <div class="hstat"><div class="hstat-val">9</div><div class="hstat-label">Major Story Arcs</div></div>
+      <div class="hstat"><div class="hstat-val">∞</div><div class="hstat-label">Level Cap</div></div>
+      <div class="hstat"><div class="hstat-val">14M+</div><div class="hstat-label">Manhwa Copies Sold</div></div>
+    </div>
+    <div class="hero-scr"><div class="hscrl"></div>SCROLL</div>
+  </div>
+
+  <!-- Slideshow dots -->
+  <div class="hero-img-dots" id="heroImgDots">
+    <div class="hidot active" onclick="goSlide(0)"></div>
+    <div class="hidot" onclick="goSlide(1)"></div>
+    <div class="hidot" onclick="goSlide(2)"></div>
+    <div class="hidot" onclick="goSlide(3)"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="si fi">
+    <div class="slabel">Origins &amp; World-Building</div>
+    <h2 class="stitle">The Solo Leveling Universe</h2>
+    <div class="about-g">
+      <div>
+        <div class="aq">"Solo Leveling follows Sung Jinwoo — once known as humanity's weakest hunter — as he gains a mysterious System that allows him to level up without limit. From the shadow of obscurity, he ascends to become the Shadow Monarch: the most powerful being in all of existence."</div>
+        <p style="font-family:var(--font-s);font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem;">Ten years before the story begins, the world was forever changed by the sudden appearance of <strong style="color:var(--text)">Gates</strong> — dimensional rifts connecting Earth to monster-infested dungeons. Nations scrambled to classify and contain the threat. Those born with the ability to enter and clear these dungeons became known as <strong style="color:var(--text)">Hunters</strong>, registering with national associations and ranked by the mana capacity their bodies could hold.</p>
+        <p style="font-family:var(--font-s);font-size:.9rem;color:var(--muted);line-height:1.85;">It was believed that a Hunter's rank was fixed at awakening — immutable, biological fate. Then Sung Jinwoo shattered that assumption entirely. His story isn't just about power; it's about the nature of destiny itself, the price of strength, and what one man will endure to protect the people he loves.</p>
+        <div class="afacts" style="margin-top:1.4rem">
+          <div class="aitem"><div class="aicon">📖</div><div><div class="alabel">Original Medium</div><div class="aval">Web Novel "나 혼자만 레벨업" (Only I Level Up) by Chugong, serialized on KakaoPage from 2016 to 2018. 270 chapters + 3 side stories.</div></div></div>
+          <div class="aitem"><div class="aicon">🎨</div><div><div class="alabel">Manhwa</div><div class="aval">Illustrated by Dubu (REDICE STUDIO). Serialized 2018–2021. 179 chapters. Dubu passed away in July 2022 — the manhwa community deeply mourns his loss.</div></div></div>
+          <div class="aitem"><div class="aicon">📺</div><div><div class="alabel">Anime</div><div class="aval">Produced by A-1 Pictures. Season 1 aired Winter 2024 (12 episodes). Season 2 released 2025. Opening theme "LEveL" by SawanoHiroyuki[nZk].</div></div></div>
+          <div class="aitem"><div class="aicon">🌏</div><div><div class="alabel">Cultural Impact</div><div class="aval">Translated into 100+ languages. Credited with popularizing the LitRPG/system-fantasy genre globally. One of the top-selling digital manhwa of all time.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="slabel" style="margin-bottom:1rem">World Mechanics</div>
+        <div class="world-row" style="margin-top:0">
+          <div class="world-card"><div class="wc-title">🚪 Gates</div><div class="wc-body">Dimensional rifts that appear spontaneously worldwide. Ranked E through S by size and threat level. If left uncleaned, they crack open and release monsters into the real world — a "Gate Break." Preventing Gate Breaks is a Hunter's core duty.</div></div>
+          <div class="world-card"><div class="wc-title">⚡ Mana</div><div class="wc-body">The energy that powers Hunter abilities, monster attacks, and the Gates themselves. Humans who awaken as Hunters have mana cores — organs that generate and store mana. Core size determines rank at awakening.</div></div>
+          <div class="world-card"><div class="wc-title">🏛️ Hunter Associations</div><div class="wc-body">Every nation maintains a Hunter Association — a government body that registers, ranks, and regulates Hunters. They also manage Gate notifications, dungeon database records, and international Hunter cooperation treaties.</div></div>
+          <div class="world-card"><div class="wc-title">💎 Magic Crystals</div><div class="wc-body">Monster cores dropped upon defeat. The primary economic currency of the Hunter economy — refined into energy, weapons, and artifacts. Higher-grade crystals are worth fortunes on the black and white markets.</div></div>
+          <div class="world-card"><div class="wc-title">🗝️ Instant Dungeons</div><div class="wc-body">Pocket dungeons accessible only to the specific Hunter who finds the key. No time passes in the real world while inside. Jinwoo uses these as private training grounds, earning massive experience safely.</div></div>
+          <div class="world-card"><div class="wc-title">🌑 Double Dungeons</div><div class="wc-body">Extraordinarily rare — dungeons hidden within dungeons. The inner sanctum contains threats so far beyond the outer that few survive discovery. The Double Dungeon in Hapjeong is where Jinwoo's story truly begins.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- JINWOO -->
+<section id="jinwoo">
+  <div class="si fi">
+    <div class="slabel">Main Character</div>
+    <h2 class="stitle">Sung Jinwoo — The Shadow Monarch</h2>
+    <div class="phead">
+      <div class="pav">🗡️</div>
+      <div class="pinfo">
+        <h2>성진우 · Sung Jinwoo <small>/ ソン・ジヌ</small></h2>
+        <div class="ptags">
+          <span class="ptag">Shadow Monarch</span><span class="ptag">The Player</span><span class="ptag">Humanity's Greatest Hunter</span>
+          <span class="ptag">The Weakest Hunter (Former)</span><span class="ptag">Ashborn's Successor</span><span class="ptag">The Master of Life and Death</span>
+        </div>
+        <p class="bio">Born to a Hunter father who fell comatose and a mother struck with an incurable illness, Jinwoo became a Hunter out of necessity, not ambition. Despite E-Rank status — the weakest possible — he entered dungeons too dangerous for his level to pay his family's medical bills. In the Double Dungeon incident that killed most of his party, Jinwoo was the last standing. Stabbed through the chest, he chose to sacrifice himself so others could survive. The System chose him.</p>
+        <p class="bio">What followed was the most extraordinary individual evolution in human history — from a man who couldn't clear a D-Rank dungeon alone to a being capable of defeating Monarchs who could shatter continents.</p>
+        <div class="rank-prog">
+          <span class="rs">E-Rank</span><span class="rarr">→</span>
+          <span class="rs">D-Rank</span><span class="rarr">→</span>
+          <span class="rs">C-Rank</span><span class="rarr">→</span>
+          <span class="rs">B-Rank</span><span class="rarr">→</span>
+          <span class="rs">A-Rank</span><span class="rarr">→</span>
+          <span class="rs">S-Rank</span><span class="rarr">→</span>
+          <span class="rs">National Level</span><span class="rarr">→</span>
+          <span class="rs cur">Shadow Monarch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="slabel" style="margin-bottom:1rem">Core Abilities</div>
+    <div class="ab-grid">
+      <div class="ab-card"><div class="ab-icon">⚙️</div><div class="ab-name">The System</div><div class="ab-tier">PASSIVE · EXCLUSIVE</div><div class="ab-desc">A game-like interface visible only to Jinwoo. Assigns daily quests, tracks all stats in real time, awards skills on level-up, maintains an inventory, and operates a personal shop. Created by the Architect — a Ruler assigned by Ashborn — to find a worthy vessel for the Shadow Monarch's power.</div></div>
+      <div class="ab-card"><div class="ab-icon">💀</div><div class="ab-name">Shadow Extraction</div><div class="ab-tier">ACTIVE · SHADOW MONARCH CLASS</div><div class="ab-desc">Converts the corpses of defeated enemies into eternal shadow soldiers. The converted soldier retains their memories, combat instincts, and personality from life but is bound absolutely to Jinwoo's will. One failure of extraction destroys the shadow permanently.</div></div>
+      <div class="ab-card"><div class="ab-icon">🌑</div><div class="ab-name">Shadow Exchange</div><div class="ab-tier">ACTIVE · TELEPORTATION</div><div class="ab-desc">Jinwoo swaps his physical position with any shadow soldier in his army, regardless of distance. Used for instant tactical repositioning, flanking, and escape. He can also use it to send shadow soldiers to distant locations without traveling himself.</div></div>
+      <div class="ab-card"><div class="ab-icon">👁️</div><div class="ab-name">Domain of the Monarch</div><div class="ab-tier">ULTIMATE · REALITY DOMAIN</div><div class="ab-desc">Transforms the surrounding area into Jinwoo's personal domain — a sea of absolute shadow. Within this domain, his power is amplified to near-infinite levels and all shadow soldiers are enhanced. Enemy beings of lesser power are suppressed simply by existing within it.</div></div>
+      <div class="ab-card"><div class="ab-icon">✋</div><div class="ab-name">Ruler's Authority</div><div class="ab-tier">ACTIVE · TELEKINESIS</div><div class="ab-desc">A technique stolen from the Rulers — allows Jinwoo to levitate, accelerate, and weaponize objects using pure mana will. He most frequently uses it to fling his daggers at extreme speeds or pull Kamish's Wrath to his hand from any distance.</div></div>
+      <div class="ab-card"><div class="ab-icon">🕶️</div><div class="ab-name">Stealth</div><div class="ab-tier">PASSIVE · PRESENCE ERASURE</div><div class="ab-desc">Completely suppresses Jinwoo's mana signature, killing intent, and physical presence. At full activation, even S-Rank Hunters and monsters of comparable power cannot sense him standing nearby. Essential for ambush tactics.</div></div>
+      <div class="ab-card"><div class="ab-icon">💉</div><div class="ab-name">Regeneration</div><div class="ab-tier">PASSIVE · EVOLVED</div><div class="ab-desc">Upgraded from basic healing. Jinwoo's body regenerates damage at superhuman speed — wounds that would kill a normal S-Rank seal over in seconds. At peak power, even catastrophic damage is reversed in moments.</div></div>
+      <div class="ab-card"><div class="ab-icon">⚡</div><div class="ab-name">Bloodlust / Murderous Intent</div><div class="ab-tier">PASSIVE · AURA</div><div class="ab-desc">Jinwoo unconsciously radiates killing intent proportional to his power. At full output, weaker Hunters collapse or lose consciousness simply from proximity. Even S-Ranks feel their survival instincts override rational thought.</div></div>
+    </div>
+
+    <div class="slabel" style="margin-bottom:1rem;margin-top:2.5rem">Signature Weapons &amp; Equipment</div>
+    <div class="weap-grid">
+      <div class="weap-card"><div class="weap-icon">🗡️</div><div><div class="weap-name">Demon King's Daggers (Kasaka's Venom Fang × 2)</div><div class="weap-grade">★★★★★ &nbsp; NATIONAL TREASURE GRADE</div><div class="weap-desc">Twin daggers retrieved from the Demon King Baran's treasury. Each dagger inflicts a deadly paralytic venom on contact. Jinwoo's primary weapons for the majority of the story — perfectly matched to his dual-wielding combat style.</div></div></div>
+      <div class="weap-card"><div class="weap-icon">⚔️</div><div><div class="weap-name">Kamish's Wrath</div><div class="weap-grade">★★★★★ &nbsp; DRAGON-FORGED ARTIFACT</div><div class="weap-desc">A longsword forged from the remains of Kamish — the most powerful dragon ever killed. Held in trust by the US Hunter Bureau, Jinwoo acquires it after defeating the dragon's shadow. Generates ice storms on impact at full power.</div></div></div>
+      <div class="weap-card"><div class="weap-icon">🧥</div><div><div class="weap-name">Knight Killer Armor Set</div><div class="weap-grade">★★★★☆ &nbsp; HIGH-GRADE HUNTER EQUIPMENT</div><div class="weap-desc">Lightweight black armor awarded through the System's reward chests. Provides exceptional defence without sacrificing the agility that Jinwoo's fighting style demands. Later superseded by Shadow Monarch attire.</div></div></div>
+      <div class="weap-card"><div class="weap-icon">🩹</div><div><div class="weap-name">System Inventory Items</div><div class="weap-grade">★★★☆☆ &nbsp; CONSUMABLES</div><div class="weap-desc">High-grade recovery potions, elixirs, antidotes, and quest-reward artifacts stored in the System's personal inventory. Jinwoo rarely needs them at peak power but they're critical during his mid-level development arc.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RANKS -->
+<section id="ranks">
+  <div class="si fi">
+    <div class="slabel">The Hunter Association</div>
+    <h2 class="stitle">Hunter Ranking System</h2>
+    <p class="sdesc">All Hunters are evaluated and classified by the Hunter Association upon awakening. Rank is determined by the volume of mana a body can generate — until Sung Jinwoo proved that limitation was not absolute. Click each rank to expand full details.</p>
+    <div class="ranks-wrap" id="ranksList"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYSTEM -->
+<section id="system">
+  <div class="si fi">
+    <div class="slabel">The Player's Interface</div>
+    <h2 class="stitle">The System — Deep Analysis</h2>
+    <p class="sdesc">A miraculous interface exclusive to Sung Jinwoo, operating like a sentient video game overlaid on reality. Its true origin is neither magic nor technology — it is the final gift of the Shadow Monarch Ashborn, mediated by the Architect.</p>
+    <div class="sys-win">
+      <div class="sys-hd">
+        <span class="sys-ttl">◈ SYSTEM INTERFACE &nbsp;·&nbsp; PLAYER: SUNG JINWOO &nbsp;·&nbsp; BUILD ∞</span>
+        <div class="sys-dots">
+          <div class="sdot" style="background:#ef4444"></div>
+          <div class="sdot" style="background:#f59e0b"></div>
+          <div class="sdot" style="background:#22c55e"></div>
+        </div>
+      </div>
+      <div class="sys-bd">
+        <div class="sys-tabs">
+          <div class="stab active" onclick="switchTab(this,'t-overview')">Overview</div>
+          <div class="stab" onclick="switchTab(this,'t-quests')">Daily Quests</div>
+          <div class="stab" onclick="switchTab(this,'t-skills')">Skills</div>
+          <div class="stab" onclick="switchTab(this,'t-shop')">Store &amp; Inventory</div>
+          <div class="stab" onclick="switchTab(this,'t-penalty')">Penalty &amp; Rules</div>
+          <div class="stab" onclick="switchTab(this,'t-origin')">True Origin</div>
+        </div>
+        <div class="sys-panel active" id="t-overview">
+          <div class="sys-grid">
+            <div class="scard"><div class="scard-t">⚙ SYSTEM TYPE</div><div class="scard-v">Solo Play</div><div class="scard-d">Designed for a single Player only. No co-op mode. No shared experience. Every reward, every stat, every shadow — exclusively Jinwoo's.</div></div>
+            <div class="scard"><div class="scard-t">📊 STAT TRACKING</div><div class="scard-v">Real-Time</div><div class="scard-d">STR · AGI · VIT · INT · PER · SEN — continuously updated the moment any activity alters them. Precise to decimal values invisible to the player display.</div></div>
+            <div class="scard"><div class="scard-t">⬆ LEVEL CAP</div><div class="scard-v">Unlimited</div><div class="scard-d">No theoretical ceiling. Jinwoo's level surpasses all human records and eventually exceeds what the System's UI can even display meaningfully.</div></div>
+            <div class="scard"><div class="scard-t">🌑 SHADOW COUNT</div><div class="scard-v">130,000+</div><div class="scard-d">The approximate count of shadow soldiers in Jinwoo's army at full strength. The true number is never officially confirmed — new shadows continue to be extracted throughout the story.</div></div>
+            <div class="scard"><div class="scard-t">🏪 STORE ACCESS</div><div class="scard-v">Active</div><div class="scard-d">A personal shop accessed through the System interface. Items purchased with Store Points earned from quest completions. High-grade potions, elixirs, and rare equipment available.</div></div>
+            <div class="scard"><div class="scard-t">🎒 INVENTORY</div><div class="scard-v">Spatial</div><div class="scard-d">A pocket dimension accessible only to Jinwoo. Carries weapons, armor, items, and loot without physical weight. Items retrieved instantly on mental command.</div></div>
+          </div>
+        </div>
+        <div class="sys-panel" id="t-quests">
+          <div class="sys-grid">
+            <div class="scard"><div class="scard-t">💪 PUSH-UPS</div><div class="scard-v">100 / day</div><div class="scard-d">Base daily requirement. Scales as Jinwoo's strength increases. Failure to meet quota by midnight triggers penalty warning.</div></div>
+            <div class="scard"><div class="scard-t">🧘 SIT-UPS</div><div class="scard-v">100 / day</div><div class="scard-d">Core stability and endurance requirement. Completed alongside push-ups as part of the morning physical regimen.</div></div>
+            <div class="scard"><div class="scard-t">🏃 RUNNING</div><div class="scard-v">10 km / day</div><div class="scard-d">Agility and stamina maintenance. Jinwoo completes this at speeds that overtake vehicles — civilians mistake him for something supernatural.</div></div>
+            <div class="scard"><div class="scard-t">🦵 SQUATS</div><div class="scard-v">100 / day</div><div class="scard-d">Lower body power development. Jinwoo initially struggles; within weeks his legs generate force measurable in tonnes.</div></div>
+            <div class="scard"><div class="scard-t">⚔ SPECIAL MISSIONS</div><div class="scard-v">Irregular</div><div class="scard-d">Unique one-time quests triggered by story events. Reward rare skills and stat bonuses unavailable through standard leveling.</div></div>
+            <div class="scard"><div class="scard-t">🏰 DUNGEON RAIDS</div><div class="scard-v">Ongoing</div><div class="scard-d">Any dungeon cleared solo generates bonus XP multipliers on top of monster kills. Jinwoo increasingly clears dungeons rated far above his nominal rank.</div></div>
+          </div>
+          <div class="pen-box" style="margin-top:0"><strong>⚠ DAILY QUEST RULES</strong>Quests must be completed within 24 hours of assignment. Partial completion is not accepted — the System does not negotiate. A missed day does not simply mean lost EXP; it triggers a formal Penalty summons that cannot be refused.</div>
+        </div>
+        <div class="sys-panel" id="t-skills">
+          <table class="skill-table">
+            <tr><th>Skill</th><th>Tier</th><th>Type</th><th>Description</th></tr>
+            <tr><td>Vital Strike</td><td><span class="stier a">A</span></td><td>Active</td><td>A precision strike targeting vital points. Guarantees critical damage regardless of the target's defense rating.</td></tr>
+            <tr><td>Dash</td><td><span class="stier p">Passive</span></td><td>Passive</td><td>Increases movement speed burst to superhuman levels for a fraction of a second. Enables Jinwoo to cover dozens of meters in a single instant.</td></tr>
+            <tr><td>Ruler's Authority</td><td><span class="stier s">S</span></td><td>Active</td><td>Telekinetic manipulation of objects using mana will. Enables long-range combat and instant weapon retrieval.</td></tr>
+            <tr><td>Shadow Extraction</td><td><span class="stier s">S</span></td><td>Active</td><td>The signature Shadow Monarch power. Converts fallen enemies into shadow soldiers.</td></tr>
+            <tr><td>Shadow Exchange</td><td><span class="stier s">S</span></td><td>Active</td><td>Instantaneous positional swap with any shadow soldier in the army. Unlimited range once established.</td></tr>
+            <tr><td>Bloodlust</td><td><span class="stier a">A</span></td><td>Passive</td><td>Radiates killing intent that suppresses and immobilizes weaker opponents. Involuntary at Jinwoo's power level.</td></tr>
+            <tr><td>Stealth</td><td><span class="stier s">S</span></td><td>Active</td><td>Complete concealment of mana, killing intent, and physical presence. Undetectable even to beings of comparable power.</td></tr>
+            <tr><td>Regeneration</td><td><span class="stier s">S</span></td><td>Passive</td><td>Automatic high-speed wound regeneration. At peak, regenerates catastrophic damage in seconds.</td></tr>
+            <tr><td>Domain of the Monarch</td><td><span class="stier s">S</span></td><td>Ultimate</td><td>Converts surrounding space into shadow domain. Within it, Jinwoo's power is maximized and all enemies are suppressed.</td></tr>
+          </table>
+        </div>
+        <div class="sys-panel" id="t-shop">
+          <div class="sys-grid">
+            <div class="scard"><div class="scard-t">🧴 HP RECOVERY POTION</div><div class="scard-v">500 pts</div><div class="scard-d">Restores a significant portion of HP instantly. Jinwoo drinks these by the case during early-to-mid story development.</div></div>
+            <div class="scard"><div class="scard-t">💧 MP RECOVERY POTION</div><div class="scard-v">500 pts</div><div class="scard-d">Restores mana pool. Critical during extended dungeon runs when shadow extraction and combat skills drain reserves rapidly.</div></div>
+            <div class="scard"><div class="scard-t">💊 ELIXIR OF LIFE</div><div class="scard-v">50,000 pts</div><div class="scard-d">Rare high-tier recovery item. Jinwoo purchases one for his comatose father — it completely cures him where modern medicine had failed for years.</div></div>
+            <div class="scard"><div class="scard-t">🎁 REWARD CHESTS</div><div class="scard-v">Earned</div><div class="scard-d">Awarded after completing special missions. Contain rare equipment, skill books, and stat-boosting items unavailable for direct purchase.</div></div>
+            <div class="scard"><div class="scard-t">📦 INVENTORY SLOTS</div><div class="scard-v">Unlimited</div><div class="scard-d">The personal spatial inventory holds weapons, armor, looted materials, and purchased goods with no weight limit.</div></div>
+            <div class="scard"><div class="scard-t">💰 STORE POINTS</div><div class="scard-v">Variable</div><div class="scard-d">Earned through quest completions and special achievements. The primary currency of the System economy.</div></div>
+          </div>
+        </div>
+        <div class="sys-panel" id="t-penalty">
+          <div class="pen-box" style="margin-bottom:1rem"><strong>⚠ THE PENALTY ZONE — DETAILED RULES</strong>
+            The Penalty Zone is activated when Jinwoo fails to complete his daily quests within the 24-hour window. He is forcibly transported to a sealed dungeon environment — inescapable until all overdue tasks are completed or death occurs. The Penalty Zone scales to Jinwoo's current level, meaning it is never trivial. It is designed to be survivable but brutal.<br><br>
+            <strong style="color:#ef4444;font-size:.75rem">Key Rules:</strong><br>
+            · No outside assistance is possible — shadow soldiers cannot be called<br>
+            · The environment is hostile: aggressive monsters, environmental hazards<br>
+            · Time still passes in the real world while inside<br>
+            · Completing overdue tasks inside the Penalty Zone clears the debt and returns Jinwoo home<br>
+            · The System has triggered this exactly once in Jinwoo's story — he barely survived
+          </div>
+          <div class="sys-grid" style="margin-bottom:0">
+            <div class="scard"><div class="scard-t">⏰ TRIGGER</div><div class="scard-v">24h Window</div><div class="scard-d">Quests assigned at midnight. Must be completed by midnight the same day. No grace period.</div></div>
+            <div class="scard"><div class="scard-t">⚠ ENVIRONMENT</div><div class="scard-v">Scaled</div><div class="scard-d">Penalty dungeon difficulty scales proportionally with Jinwoo's current level.</div></div>
+            <div class="scard"><div class="scard-t">🚪 ESCAPE</div><div class="scard-v">Task Completion</div><div class="scard-d">The only exit is completing all overdue tasks within the Penalty Zone. Death inside means permanent death.</div></div>
+          </div>
+        </div>
+        <div class="sys-panel" id="t-origin">
+          <div class="scard" style="margin-bottom:1rem;background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.35)">
+            <div class="scard-t">🌑 THE TRUE NATURE OF THE SYSTEM</div>
+            <div class="scard-d" style="font-size:.88rem;line-height:1.85;color:var(--text)">
+              The System was not created by a corporation, a god, or technology. It was constructed by a being called <strong>the Architect</strong> — a Ruler fragment assigned by the Shadow Monarch Ashborn as his final act before choosing to die rather than serve the Absolute Being's war.<br><br>
+              Ashborn, despite being the mightiest of all Monarchs, was tired. He wanted to rest — but the nature of Monarch power meant he could only pass it on by finding a worthy host strong enough to survive the transfer.<br><br>
+              The System was built to <em>create</em> that worthy host. It chose Jinwoo because Jinwoo chose to die so others could live — an act of selflessness so rare among those with power that Ashborn recognized it as the quality he sought. The "game" is not entertainment. It is an accelerated evolution program.<br><br>
+              When Jinwoo finally received all of Ashborn's power, the System ceased to exist — its purpose fulfilled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DUNGEONS -->
+<section id="dungeons">
+  <div class="si fi">
+    <div class="slabel">Gate Classifications</div>
+    <h2 class="stitle">Dungeons &amp; Gates — Full Classification</h2>
+    <p class="sdesc">Every Gate that appears in the world is assessed and classified by the Hunter Association using a standardized threat scale. The grade determines which Hunter ranks are permitted to enter and how many Hunters are required for safe clearance.</p>
+    <div class="dung-grid" id="dungGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUILDS -->
+<section id="guilds">
+  <div class="si fi">
+    <div class="slabel">Hunter Organizations</div>
+    <h2 class="stitle">Major Hunter Guilds</h2>
+    <p class="sdesc">Guilds are independent Hunter organizations that contract dungeon clearances, provide equipment, training, and legal protection to member Hunters. The most powerful guilds effectively function as private armies capable of matching small nations.</p>
+    <div class="guilds-grid" id="guildGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SHADOWS -->
+<section id="shadows">
+  <div class="si fi">
+    <div class="slabel">Arise.</div>
+    <h2 class="stitle">The Shadow Army — Complete Roster</h2>
+    <p class="sdesc">Every shadow soldier retains the combat ability, instincts, and partial personality from their former life — amplified by the power of the Shadow Monarch. They do not age, feel pain, or know fear. Click each card to reveal full details.</p>
+    <div class="sh-grid" id="shadowGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MONARCHS -->
+<section id="monarchs">
+  <div class="si fi">
+    <div class="slabel">Celestial Powers in Conflict</div>
+    <h2 class="stitle">Monarchs &amp; Rulers — The Ancient War</h2>
+    <p class="sdesc">Long before humanity existed, two factions waged war across countless dimensions. The Monarchs are the Absolute Being's darkness given form. The Rulers are fragments of his light. Their eternal conflict is the engine that drives everything in Solo Leveling's universe. Click each entity to expand their full profile.</p>
+    <div class="two-col">
+      <div>
+        <div class="elab">⚔ THE MONARCHS — DARKNESS INCARNATE</div>
+        <div class="ruler-intro">The Monarchs were born from the Absolute Being's darkness — eight beings of immense destructive power, each commanding a domain of death and devastation. Their goal is the total annihilation of all life.</div>
+        <div class="elist" id="monarchList"></div>
+      </div>
+      <div>
+        <div class="elab">🌟 THE RULERS — FRAGMENTS OF LIGHT</div>
+        <div class="ruler-intro">The Rulers are fragments of the Absolute Being's light — seven celestial beings who protect humanity not out of pure altruism, but because they need humans to generate the mana that fuels their war against the Monarchs.</div>
+        <div class="elist" id="rulerList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="si fi">
+    <div class="slabel">Story Progression</div>
+    <h2 class="stitle">Major Arcs — Complete Timeline</h2>
+    <p class="sdesc">Nine story arcs spanning Jinwoo's transformation from humanity's weakest Hunter to the absolute monarch of all shadows. Click each arc to reveal what happened, who died, and what changed forever.</p>
+    <div class="tl-wrap" id="tlList"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BATTLES -->
+<section id="battles">
+  <div class="si fi">
+    <div class="slabel">Legendary Confrontations</div>
+    <h2 class="stitle">Famous Battles — Deep Analysis</h2>
+    <p class="sdesc">The fights that defined Jinwoo's ascent. Each battle marks a turning point — a moment where the world's understanding of what one human being was capable of was permanently updated.</p>
+    <div class="bat-grid" id="batGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="si fi">
+    <div class="slabel">Player Status Window</div>
+    <h2 class="stitle">Jinwoo's Final Statistics</h2>
+    <p class="sdesc">The recorded stats of the Shadow Monarch at peak power — after inheriting Ashborn's full strength and completing the final timeline reset. Numbers animate on scroll.</p>
+    <div class="stat-g" id="statGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="si fi">
+    <div class="slabel">Words of the Monarch</div>
+    <h2 class="stitle">Iconic Quotes</h2>
+    <div class="q-wrap">
+      <div class="qmark">"</div>
+      <div class="qdisp">
+        <div class="qtext" id="qtext"></div>
+        <div class="qspeak" id="qspeak"></div>
+      </div>
+      <div class="qdots" id="qdots"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="si fi">
+    <div class="slabel">Visual Archive</div>
+    <h2 class="stitle">Gallery</h2>
+    <p class="sdesc">Click any card to expand its full details in the viewer.</p>
+    <div class="gal-g" id="galGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FACTS -->
+<section id="facts">
+  <div class="si fi">
+    <div class="slabel">Did You Know?</div>
+    <h2 class="stitle">Deep Fun Facts</h2>
+    <div class="facts-g" id="factsGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="flogo">⚔ SOLO LEVELING UNIVERSE — DEEP ENCYCLOPEDIA</div>
+  <p class="fdis">Solo Leveling and all characters, artwork, concepts, and story belong to their respective creators: Chugong (author), REDICE STUDIO / Dubu (manhwa), A-1 Pictures (anime), and KakaoPage / D&C Media (publishing). This is a fan-made, non-commercial encyclopedic project created out of deep love for the series. All rights belong to their rightful owners.</p>
+  <div class="fcopy">CREATED BY A FAN · FOR FANS · ⚔ ARISE ⚔</div>
+</footer>
+
+<script>
+/* ── SMOOTH SCROLL FIX ── */
+function scrollToSection(id){
+  const el=document.getElementById(id);
+  if(el){
+    const offset=el.getBoundingClientRect().top+window.scrollY-70;
+    window.scrollTo({top:offset,behavior:'smooth'});
+  }
+}
+
+/* ── HERO BACKGROUND SLIDESHOW ── */
+let currentSlide=0;
+const slides=document.querySelectorAll('.hero-bg-slide');
+const slideDots=document.querySelectorAll('.hidot');
+
+function goSlide(n){
+  slides[currentSlide].classList.remove('active');
+  slideDots[currentSlide].classList.remove('active');
+  currentSlide=n;
+  slides[currentSlide].classList.add('active');
+  slideDots[currentSlide].classList.add('active');
+}
+
+function nextSlide(){goSlide((currentSlide+1)%slides.length);}
+setInterval(nextSlide,4500);
+
+/* ── DATA ── */
+const RANKS=[
+  {badge:'E',name:'E-Rank Hunter',sub:'Weakest Classification',color:'#94a3b8',
+   detail:'The absolute lowest tier. E-Rank hunters are barely capable of entering the lowest-grade dungeons safely. Most work in support roles — item carriers, lookouts, and medical assistants within parties of stronger hunters. Solo E-Rank dungeon runs are considered suicidal. Sung Jinwoo held this rank at story start — making him nationally known as "the weakest hunter" by both colleagues and the press. Despite his rank, Jinwoo entered C-Rank dungeons out of financial desperation.',
+   examples:['Sung Jinwoo (start)','Most civilian-turned Hunters']},
+  {badge:'D',name:'D-Rank Hunter',sub:'Low-Grade Combatant',color:'#4ade80',
+   detail:'Capable of independently handling E and D-Grade dungeon threats. D-Rank hunters can form parties for C-Grade dungeons with adequate preparation. Most D-Ranks work in smaller regional guilds or freelance on low-risk contracts. Income is modest but livable.',
+   examples:['Sung Jinchul (early)','Park Beom-shik']},
+  {badge:'C',name:'C-Rank Hunter',sub:'Mid-Grade Combatant',color:'#22c55e',
+   detail:'A meaningful step up. C-Rank hunters can handle C-Grade dungeons solo and participate in B-Grade raids as part of organized parties. Guilds actively recruit C-Ranks as reliable field members. Income improves considerably. Many C-Ranks aspire to B-Rank but the jump is significantly harder.',
+   examples:['Yoo Jinho (wealthy license holder)','Various Ahjin Guild recruits']},
+  {badge:'B',name:'B-Rank Hunter',sub:'High-Grade Field Operative',color:'#facc15',
+   detail:'Sought after by every major guild. B-Rank hunters represent the upper middle tier — powerful enough to lead C-Grade raids independently and hold their own in B-Grade dungeons with proper party composition. A B-Rank hunter can earn enough to be financially comfortable for life if they clear dungeons consistently.',
+   examples:['Jinwoo (mid-story ascent)','Various White Tiger sub-officers']},
+  {badge:'A',name:'A-Rank Hunter',sub:'Elite Combat Specialist',color:'#f97316',
+   detail:'The elite backbone of the Hunter world. A-Rank hunters are recruited by top guilds with lucrative contracts and public visibility. They can operate solo in B-Grade dungeons and form the core of S-Grade raid parties. The jump from A to S is the most brutal in the ranking system — most A-Ranks never cross it despite years of effort.',
+   examples:['Lim Tae-gyu','Min Byung-gu (healer)','Song Chi-Yul (Korean HA)']},
+  {badge:'S',name:'S-Rank Hunter',sub:'Apex Human Combatant',color:'#a855f7',
+   detail:'The peak of officially measured human ability. Each nation has only a handful of S-Ranks — they are celebrity-level public figures, political assets, and often the primary line of defense against A and S-Grade Gate breaks. S-Rank hunters command contracts worth billions.',
+   examples:['Cha Hae-In','Go Gunhee','Choi Jong-In','Hwang Dong-Su','Liu Zhigang','Jonas']},
+  {badge:'NL',name:'National Level Hunter',sub:'Strategic Deterrent — Beyond Classification',color:'#c084fc',
+   detail:'A designation that doesn\'t officially exist in the Hunter ranking system — it was informally created because some S-Rank hunters are so far beyond the rest of their tier that standard classification is meaningless. National Level hunters are classified as national strategic assets, equivalent in deterrent value to nuclear weapons.',
+   examples:['Thomas Andre (USA — strongest)','Liu Zhigang (China)','Jonas (Germany)','Christopher Reed (USA)','Sung Jinwoo (Korea, briefly)']},
+];
+
+const DUNGEONS=[
+  {grade:'E-GRADE',name:'Entry Level Gate',color:'#94a3b8',clearance:'E-Rank Solo or D-Rank recommended',monsters:'Goblins, Weak Slimes, Low Imps',bossType:'Minor Named Goblin or Sub-Boss',reward:'Common magic crystals, basic loot',threat:'Minimal. Manageable by newly awakened hunters with basic training. Collapse risk is low if cleared within 7 days.'},
+  {grade:'D-GRADE',name:'Standard Dungeon Gate',color:'#4ade80',clearance:'D-Rank solo or C-Rank recommended',monsters:'Orcs, Hobgoblins, Basilisks',bossType:'Named Orc Chief or Minor Demon',reward:'D-Grade crystals, uncommon equipment',threat:'Moderate. Solo D-Rank runs carry real injury risk. Party composition of 4–6 D-Ranks is standard.'},
+  {grade:'C-GRADE',name:'Intermediate Combat Gate',color:'#facc15',clearance:'C-Rank solo or B-Rank recommended',monsters:'High Orcs, Stone Golems, Dire Wolves',bossType:'High Orc Warchief, Named Stone Giant',reward:'C-Grade crystals, rare materials, weapon drops',threat:'Significant. The dungeon where Jinwoo\'s party first entered at story-start. Without proper B-Rank support, casualties are common.'},
+  {grade:'B-GRADE',name:'Advanced Threat Gate',color:'#f97316',clearance:'B-Rank party or A-Rank',monsters:'High Demons, Ice Wyverns, Death Knights',bossType:'Demon General, Named Wyvern',reward:'B-Grade crystals, A-Grade equipment, skill books',threat:'High. B-Grade gates require coordinated raid parties. A single B-Grade boss can wipe a party of C-Rank hunters entirely.'},
+  {grade:'A-GRADE',name:'High-Danger Gate',color:'#ef4444',clearance:'A-Rank party or S-Rank recommended',monsters:'High Demons, Dragon Minions, Elemental Giants',bossType:'Demon King Sub-class, Dragon Whelp',reward:'A-Grade crystals, S-Grade equipment, rare artifacts',threat:'Very high. Nations mobilize guild coalitions for A-Grade gates. The boss alone can level city blocks. S-Rank oversight is mandatory in most associations.'},
+  {grade:'S-GRADE',name:'Catastrophic Gate',color:'#a855f7',clearance:'S-Rank party required — National Level preferred',monsters:'Dragon-class, Ant-class, Demon King servants',bossType:'Named Dragon, Ant King, Demon King class',reward:'S-Grade crystals, national treasure artifacts, unique drops',threat:'Existential. S-Grade gates are treated as national emergencies. The Jeju Island Gate was S-Grade. The Ant King\'s emergence nearly depopulated the island permanently.'},
+  {grade:'DOUBLE',name:'Double Dungeon',color:'#7c3aed',clearance:'Unknown — no standard recommendation',monsters:'Unknown until inner chamber breach',bossType:'Unknown — Statue Gods in the known case',reward:'The System (Jinwoo\'s case — unique)',threat:'EXTREME. The only documented Double Dungeon triggered the events that gave Jinwoo the System. Its inner sanctum contained Stone Statue gods operating on their own inscrutable ruleset. Survivors: 2 of ~17.'},
+];
+
+const GUILDS=[
+  {icon:'⚔️',name:'Hunters Guild',country:'🇰🇷 South Korea',info:'The largest and most prestigious Hunter guild in Korea. Led by S-Rank Choi Jong-In — a man of enormous strategic intellect and firepower. The Hunters Guild has first right of refusal on most A and S-Grade Korean dungeons. Their wealth and political influence rivals the Hunter Association itself.',members:['Choi Jong-In (S-Rank Leader)','Various A-Rank officers','500+ active members']},
+  {icon:'🐅',name:'White Tiger Guild',country:'🇰🇷 South Korea',info:'Korea\'s second most powerful guild — known for aggressive tactics, strong military-style structure, and the formidable Baek Yoonho as its S-Rank leader. The White Tiger guild has a fractious history with Jinwoo, initially underestimating him severely.',members:['Baek Yoonho (S-Rank Leader)','Cha Hae-In (transfers out later)','Yoo Soohyun','400+ members']},
+  {icon:'🌸',name:'Cha Hae-In\'s Sword Guild',country:'🇰🇷 South Korea',info:'Less a formal guild structure, more a recognition of Cha Hae-In\'s status as Korea\'s most respected S-Rank Hunter after Jinwoo. She affiliates temporarily with White Tiger before striking an independent path. Her relationship with Jinwoo is central to the story\'s emotional core.',members:['Cha Hae-In (S-Rank)']},
+  {icon:'🦅',name:'Scavenger Guild',country:'🇺🇸 United States',info:'The guild representing Thomas Andre — the world\'s #1 Hunter. More a personal powerhouse than a traditional guild. The Scavenger Guild operates globally, selectively tackling the most dangerous dungeons and occasionally interceding in international crises.',members:['Thomas Andre (National Level, World #1)','Christopher Reed','Various elite A-Ranks']},
+  {icon:'🐉',name:'Ahjin Guild',country:'🇰🇷 South Korea',info:'Sung Jinwoo\'s own guild, established after he receives his S-Rank Hunter license. The only guild in history with a single active member — Jinwoo himself. Yoo Jinho serves as the nominal co-founder and administrative director. Ahjin Guild never takes on additional active hunters; it doesn\'t need to.',members:['Sung Jinwoo (Shadow Monarch)','Yoo Jinho (Director / Co-Founder)']},
+  {icon:'🌍',name:'International Guild Conference Bodies',country:'🌐 Global',info:'A loose consortium of the world\'s 5 largest guilds that convene for cross-border dungeon crises and political negotiations. They have limited actual power — when National Level hunters are involved, guilds defer.',members:['Thomas Andre','Liu Zhigang','Jonas','Christopher Reed','Tariq Ghalban']},
+];
+
+const SHADOWS=[
+  {icon:'⚔️',name:'Igris',role:'Commander of the Knight Corps',grade:'Marshal Grade',color:'#ef4444',
+   origin:'Igris was the Red Knight — a knight-class boss stationed in the Castle of Trials dungeon, the Special Quest Jinwoo received as his second System mission. He was an immovable guardian who had defeated countless challengers.',
+   powers:'Exceptional swordsmanship with precision that transcends what human musculature should allow. After extraction and repeated battles, Igris was promoted to Marshal — the highest shadow grade — and now commands all knight-class shadows.',
+   stats:['Marshal Grade','Knight Commander','Former Boss']},
+  {icon:'🛡️',name:'Iron',role:'Frontline Tank — Shield Division',grade:'General Grade',color:'#6b7280',
+   origin:'A powerful named boss encountered during a C-Grade dungeon. Iron was a massive armored humanoid whose body composition made him nearly impervious to physical damage.',
+   powers:'Iron\'s value in the shadow army is pure defensive utility. He functions as an immovable shield — absorbing frontal assault while faster shadows execute flanking maneuvers.',
+   stats:['General Grade','Shield Division','Frontline Tank']},
+  {icon:'🦷',name:'Tusk',role:'Assault Commander — Brute Force Division',grade:'Elite Knight Grade',color:'#84cc16',
+   origin:'A High Orc Warchief encountered in a B-Grade dungeon. High Orcs are among the most physically imposing monsters in the mid-tier dungeon ecosystem — far stronger and more durable than standard orcs.',
+   powers:'Savage berserker combat combining extreme physical strength with fearless aggression. Tusk excels at breaking enemy formations — charging headfirst into clustered opponents to scatter and disorient them.',
+   stats:['Elite Knight Grade','Assault Commander','High Orc Origin']},
+  {icon:'🐝',name:'Beru',role:'Marshal Grade — Ant Corps Commander',grade:'Marshal Grade (Highest)',color:'#f59e0b',
+   origin:'The Ant King of Jeju Island — the most powerful naturally-occurring monster ever documented on Earth. Leading an ant colony that overran all of Jeju Island, Beru\'s power exceeded multiple S-Rank Hunters simultaneously.',
+   powers:'Ultrasonic scream that ruptures internal organs. Acid venom capable of dissolving reinforced steel. Flight at hundreds of kilometers per hour. After extraction, Beru gradually develops speech capability and fierce personal loyalty to Jinwoo.',
+   stats:['Marshal Grade','Ant King Origin','Can Speak','Venom Healer']},
+  {icon:'👑',name:'Bellion',role:'Grand Marshal — Supreme Commander',grade:'Grand Marshal Grade',color:'#a855f7',
+   origin:'The Grand Marshal of the original Shadow Monarch Ashborn\'s army — a being who served the previous Shadow Monarch across thousands of years and countless battles. He was waiting in the Shadow Realm, preserved by Ashborn to serve the next Monarch.',
+   powers:'Combat ability at the level of a Monarch\'s top general. Bellion commands the entire Shadow Army above all other soldier ranks. His raw power exceeds any other shadow soldier by a significant margin.',
+   stats:['Grand Marshal Grade','Pre-existing Shadow','Ashborn\'s Army']},
+  {icon:'🏹',name:'Kaisel',role:'Air Cavalry Commander — Dragon',grade:'General Grade',color:'#3b82f6',
+   origin:'A dragon-class shadow extracted from a dungeon containing dragon minions. Dragon shadows are exceedingly rare given how few dragon-class monsters exist in accessible dungeons.',
+   powers:'Flight at extreme altitude and speed. Draconic breath weapon. Scales that resist most physical and magical damage. Jinwoo frequently mounts Kaisel for rapid aerial transport.',
+   stats:['General Grade','Dragon Class','Air Transport']},
+  {icon:'👁️',name:'Tank',role:'Siege Unit',grade:'Elite Grade',color:'#64748b',
+   origin:'One of the earliest notable shadows extracted during the Castle of Trials quest series. Tank represents the thousands of unnamed soldier-grade shadows that form the bulk of the 130,000+ strong army.',
+   powers:'Heavy physical combat. Functions as a battering ram in formation combat. Critical as part of the mass infantry that Jinwoo deploys against armies rather than individual opponents.',
+   stats:['Elite Grade','Siege Infantry','Early Extraction']},
+];
+
+const MONARCHS=[
+  {icon:'🖤',name:'Ashborn — Shadow Monarch',rank:'Strongest Monarch — Defeated',
+   det:'The King of the Dead. Ashborn was the mightiest of all eight Monarchs. But Ashborn was fundamentally different: unlike the other Monarchs, who wanted destruction, Ashborn was lonely. He chose to die rather than continue serving the Absolute Being\'s war — bequeathing his entire power and the Shadow Army to Sung Jinwoo. He is the true origin of everything Jinwoo becomes.'},
+  {icon:'🐺',name:'Antares — Beast Monarch',rank:'King of Beasts · Final Antagonist',
+   det:'The most powerful Monarch after Ashborn — and the story\'s ultimate villain. Antares commands an army of beast-class monsters and personally wields physical strength capable of shattering continents. It was Antares who invaded Korea in the final arc and triggered the sequence of events leading to the timeline reset.'},
+  {icon:'❄️',name:'Frost Monarch',rank:'Monarch of Snow and Ice',
+   det:'Commands legions of ice giants, frost dragons, and snow elementals. His domain is perpetual winter — he can freeze entire armies in moments and generate blizzards that cover continents. The Frost Monarch is one of the most tactically sophisticated Monarchs, preferring environmental control over direct combat.'},
+  {icon:'🐉',name:'Legia — Dragon Monarch',rank:'King of Dragons',
+   det:'Ruler of the dragon hierarchy — the most ancient and powerful species in the monster ecosystem. Legia commands every dragon-class monster and is personally one of the largest beings in the Monarch pantheon. He fought Jinwoo in the Monarchs War arc.'},
+  {icon:'☠️',name:'Plague Monarch',rank:'King of Plagues · Spread and Rot',
+   det:'Weaponizes disease, rot, and biological corruption on a mass scale. The Plague Monarch\'s army infects rather than fights conventionally. A single soldier of his forces, if left unchecked in a populated area, could trigger pandemics capable of wiping out cities.'},
+  {icon:'🔥',name:'Monarch of White Flames',rank:'King of Burning Destruction',
+   det:'Commands the power of white-hot supernatural fire — a flame that cannot be extinguished by conventional means and burns through mana shields as easily as physical matter. His domain is a world of perpetual white flame.'},
+  {icon:'🕷️',name:'Querehsha — Plague Monarch (Insect)',rank:'Queen of Insects',
+   det:'Commands insect-class monsters including the ant colonies responsible for the Jeju Island incident. Querehsha\'s ants are not her personal soldiers; they are her children. The destruction of Jeju\'s Ant King Beru by Jinwoo is treated as a profound personal affront to her authority.'},
+  {icon:'⚡',name:'Baran — Demon King',rank:'King of Demons · Conquered',
+   det:'Rules over demons with quasi-Monarch-level authority. He commanded the Demon Castle dungeon — 100 floors of escalating demon armies. Baran wielded lightning magic and commanded forces that overwhelmed entire Hunter parties. Jinwoo\'s defeat of Baran marked the moment the Hunter community began to understand that Jinwoo was beyond conventional classification.'},
+];
+
+const RULERS=[
+  {icon:'✨',name:'Haeru — Right Hand of God',rank:'Highest-Ranking Ruler',
+   det:'The most powerful of the seven Rulers. Haeru secretly observed and assisted Jinwoo throughout his journey, operating through subtle interventions. He was deeply conflicted about the Rulers\' treatment of humanity as a resource. In the final arc, he makes a decisive choice that changes the war\'s outcome.'},
+  {icon:'🌟',name:'The Seven Rulers',rank:'Fragments of the Absolute Being\'s Light',
+   det:'Seven celestial beings born from the Absolute Being\'s light, waging eternal war against the eight Monarchs across countless worlds. They are not heroes — they manipulate humanity and construct elaborate systems to generate mana for their war effort. Their moral status is deliberately ambiguous.'},
+  {icon:'🌠',name:'The Architect',rank:'System Builder · Ashborn\'s Agent',
+   det:'A Ruler fragment assigned a unique mission by Ashborn himself — to build the System that would identify and prepare a worthy human vessel to receive the Shadow Monarch\'s power. The Architect constructed every interface, quest, penalty, and reward. He is revealed as Jinwoo\'s final System boss.'},
+  {icon:'⚖️',name:'Absolute Being',rank:'Creator of All — The Silent God',
+   det:'The being who created both Monarchs and Rulers in the first place — and then inexplicably stopped existing or disappeared. Whether the Absolute Being died, ascended, or chose disengagement is never fully clarified. The war between his two created factions continued without him.'},
+];
+
+const ARCS=[
+  {num:'01',name:'Double Dungeon Arc',
+   det:'Jinwoo and a party of hunters enter what appears to be a standard dungeon. Inside, they discover a hidden inner sanctum — a Double Dungeon. Stone Statue gods with incomprehensible rules force the party into lethal trials. One by one, hunters die. Jinwoo, critically wounded, chooses to sacrifice himself so others could survive — and instead of dying, he awakens to find the System blinking into existence.',
+   pills:['E-Rank Jinwoo','Double Dungeon','System Activation','Origin Event']},
+  {num:'02',name:'Instant Dungeon Arc',
+   det:'Newly awakened to the System, Jinwoo begins the process of understanding his new reality. He discovers Instant Dungeons — private pocket dimensions accessible only to him. His physical transformation begins here: the weakest hunter in Korea starts quietly becoming someone his former colleagues would not recognize.',
+   pills:['System Learning','Rapid Leveling','Instant Dungeons','Identity Shift']},
+  {num:'03',name:'Job Change Arc',
+   det:'The System issues a special quest leading Jinwoo to the Demon Castle — a hidden dungeon of 100 escalating floors. Completing it unlocks the "Necromancer" job change, which grants Shadow Extraction for the first time. The moment he commands extracted soldiers to stand is the moment the Shadow Monarch\'s legacy truly reawakens.',
+   pills:['Demon Castle','Job Change Quest','Shadow Extraction Unlock','First Army']},
+  {num:'04',name:'Demon Castle / Baran Arc',
+   det:'The full confrontation with Baran — the Demon King occupying the castle\'s apex. A lightning-wielding, army-commanding demon of immense power. Jinwoo defeats Baran alone after an exhausting battle. The victory announces to perceptive observers that something genuinely unprecedented is happening with this newly registered S-Rank hunter.',
+   pills:['Baran the Demon King','Lightning Combat','Army of Demons','S-Rank Revelation']},
+  {num:'05',name:'Jeju Island Raid Arc',
+   det:'An S-Grade gate on Jeju Island has been left uncleared too long. The ant colony inside — led by the Ant King Beru — has evolved to terrifying power levels. Korea\'s finest S-Rank coalition launches a rescue mission. It fails catastrophically. Jinwoo arrives solo and fights Beru in what many consider the story\'s most brutal battle. He wins — barely. Beru becomes his most powerful shadow.',
+   pills:['S-Grade Gate','Ant King Beru','Coalition Failure','Jinwoo Solo','Korea Shaken']},
+  {num:'06',name:'Japan Crisis Arc',
+   det:'A Gate break in Japan spirals into a catastrophe that the Japanese Hunter Association cannot contain. Jinwoo travels there informally and annihilates the threat alone — in full public view. The international Hunter community\'s assessment of Korea\'s "new S-Rank" undergoes a violent revision.',
+   pills:['International Stage','Gate Break','Solo Clearance','Global Recognition']},
+  {num:'07',name:'Guild Conference / Thomas Andre Arc',
+   det:'Thomas Andre — the world\'s #1 hunter — provokes a direct confrontation with Jinwoo. Their fight is the most anticipated in the story: National Level vs. Shadow Monarch. Jinwoo\'s decisive victory leaves no ambiguity about who is the strongest being currently walking the Earth.',
+   pills:['Thomas Andre','World #1 Defeated','Political Fallout','Power Established']},
+  {num:'08',name:'Monarchs War Arc',
+   det:'The Monarchs launch a coordinated invasion. Multiple Monarchs move simultaneously across different locations worldwide. Jinwoo\'s father is killed by Antares. Jinwoo battles multiple Monarchs in rapid succession while his shadow army engages monster forces globally. The world begins to understand this war was never between hunters and dungeons.',
+   pills:['Multi-Monarch Invasion','Father\'s Death','Global Crisis','True War Revealed']},
+  {num:'09',name:'Final Battle / Timeline Reset Arc',
+   det:'Antares, the Beast Monarch, is the last and most powerful enemy. Jinwoo calls forth his full Shadow Army — all 130,000+ soldiers. The battle reshapes geography. At the critical moment, Jinwoo is offered a choice: accept victory with a scarred world, or reset the timeline entirely. He chooses the reset — sacrificing his memories and the Shadow Army to give humanity a second chance.',
+   pills:['Antares Final Boss','Full Shadow Army','Timeline Reset','Sacrifice','New World']},
+];
+
+const BATTLES=[
+  {icon:'⚔️',label:'Jinwoo vs Igris',vs:'CASTLE OF TRIALS · SPECIAL QUEST',
+   desc:'Jinwoo\'s first encounter with a genuine named boss in a special System dungeon. Igris, the Red Knight, was an undefeated guardian who had killed every previous challenger. The fight was prolonged and nearly killed Jinwoo multiple times — he exploited every environmental element and tactical advantage available to barely secure a win.',
+   stat1:['Duration','~45 Minutes'],stat2:['Jinwoo Level','Approx. 20s'],stat3:['Difficulty','Near-Fatal'],stat4:['Shadow Gained','Igris (Marshal)'],
+   outcome:'Victory — Igris extracted, First Marshal acquired'},
+  {icon:'👁️',label:'Jinwoo vs Baran the Demon King',vs:'DEMON CASTLE · FLOOR 100',
+   desc:'The climactic battle of the Job Change arc. Baran commanded lightning at a level that could level city districts and was supported by an army of demon soldiers. Jinwoo fought through 99 floors of enemies before reaching Baran depleted and wounded. Victory came through sheer refusal to fall.',
+   stat1:['Floors Cleared','100 Levels'],stat2:['Enemy Army','10,000+ Demons'],stat3:['Difficulty','Extreme'],stat4:['Reward','Job Change + Necromancer'],
+   outcome:'Victory — Shadow Extraction ability unlocked'},
+  {icon:'🐜',label:'Jeju Island Raid — Jinwoo vs Ant King Beru',vs:'JEJU ISLAND · SOLO INTERVENTION',
+   desc:'Korea\'s S-Rank coalition entered Jeju expecting a difficult but manageable raid. They found something that killed multiple S-Ranks. Jinwoo arrived after the coalition had been devastated, descended into the ant nest alone, and fought Beru in one of the story\'s most physically grueling battles.',
+   stat1:['S-Ranks Deployed','5 (3 died)'],stat2:['Jinwoo Companions','None'],stat3:['Beru\'s Power','National Level'],stat4:['National Impact','Catastrophic'],
+   outcome:'Victory — Beru extracted as highest-power shadow'},
+  {icon:'🌍',label:'Jinwoo vs Thomas Andre',vs:'INTERNATIONAL GUILD CONFERENCE',
+   desc:'Thomas Andre — the Goliath, the world\'s #1 Hunter — had never considered Jinwoo a genuine peer. He provoked the fight as a dominance display. What followed was a demolition. Thomas\'s ability "Collapse" — which had never failed against any previous opponent — was walked through.',
+   stat1:['Thomas\'s Rank','World #1 National Level'],stat2:['Arena Destroyed','Yes — urban district'],stat3:['Thomas After','Hospitalized'],stat4:['Political Impact','Global'],
+   outcome:'Decisive Jinwoo Victory — World power ranking permanently rewritten'},
+  {icon:'🔥',label:'Jinwoo vs Antares — The Final Battle',vs:'KOREA · FINAL CONFRONTATION',
+   desc:'Antares, the Beast Monarch and the most powerful enemy in the series, launched the world-ending invasion. Jinwoo faced him with the full 130,000-shadow army deployed globally. The battle between them directly altered geography. After pushing to his absolute limits, Jinwoo accessed the full depth of Ashborn\'s power and finally defeated Antares.',
+   stat1:['Antares Power','Strongest Monarch'],stat2:['Shadows Deployed','130,000+'],stat3:['Collateral','Continental'],stat4:['Resolution','Timeline Reset'],
+   outcome:'Victory — Timeline reset to save humanity from accumulated destruction'},
+];
+
+const STATS=[
+  {icon:'💀',label:'Shadow Army Size',val:130000,bar:99,desc:'At full strength before the final timeline reset'},
+  {icon:'⚔️',label:'Strength',val:999999,bar:100,desc:'Transcends all measurable human scale'},
+  {icon:'💨',label:'Agility',val:999999,bar:100,desc:'Effectively teleportation-speed reflexes'},
+  {icon:'🧠',label:'Intelligence',val:999999,bar:100,desc:'Tactical processing beyond human cognition'},
+  {icon:'👁️',label:'Perception',val:999999,bar:100,desc:'Senses threats across hundreds of meters'},
+  {icon:'❤️',label:'Vitality',val:999999,bar:100,desc:'Regenerates catastrophic injury in seconds'},
+  {icon:'🔮',label:'Sense',val:999999,bar:100,desc:'Mana sensitivity across vast distances'},
+  {icon:'🌑',label:'Mana Pool',val:999999,bar:100,desc:'Effectively bottomless — Monarch-class reserves'},
+];
+
+const QUOTES=[
+  {text:'"Arise."',speaker:'— Sung Jinwoo, Shadow Monarch'},
+  {text:'"The weak have no choice but to obey the strong."',speaker:'— Ashborn, Original Shadow Monarch'},
+  {text:'"If I had one more chance, I would fight again."',speaker:'— Sung Jinwoo, after the Double Dungeon'},
+  {text:'"I am the Shadow Monarch. And I will not lose."',speaker:'— Sung Jinwoo, Monarchs War Arc'},
+  {text:'"You asked why I keep getting stronger. Because no one else will."',speaker:'— Sung Jinwoo'},
+  {text:'"The system chose you because you were worth saving."',speaker:'— The Architect'},
+  {text:'"In this world, only the strong have the right to speak."',speaker:'— Thomas Andre'},
+  {text:'"I\'m the only one who can see this screen. And that\'s enough."',speaker:'— Sung Jinwoo, System Arc'},
+  {text:'"Every level I gain is another step away from the man I was."',speaker:'— Sung Jinwoo'},
+  {text:'"Loneliness is the price of incomparable power."',speaker:'— Ashborn, to Jinwoo'},
+];
+
+const GALLERY=[
+  {icon:'🗡️',title:'Sung Jinwoo — The Shadow Monarch',desc:'The man who ascended from E-Rank trash to the absolute pinnacle of all existence. His dual daggers — Kasaka\'s Venom Fangs — are his iconic weapons before acquiring Kamish\'s Wrath.'},
+  {icon:'💀',title:'The Shadow Army — 130,000 Strong',desc:'At the Final Battle, Jinwoo deploys the full Shadow Army — soldiers of every size, class, and origin standing in absolute silence awaiting one command.'},
+  {icon:'🐜',title:'Jeju Island — The Ant Nest',desc:'An entire island overtaken by a hyper-evolved ant colony. Korea\'s S-Rank coalition entered expecting a hard fight. They found a national catastrophe. Jinwoo entered the queen\'s chamber alone.'},
+  {icon:'👑',title:'The Monarchs — Darkness Incarnate',desc:'Eight beings born from the Absolute Being\'s darkness, each commanding a domain of destruction. Their war against the Rulers has annihilated countless worlds before Earth became the final battlefield.'},
+  {icon:'🏯',title:'The Demon Castle',desc:'One hundred floors of escalating demon armies, each floor more deadly than the last. Baran the Demon King waited at the top.'},
+  {icon:'❄️',title:'Frost Monarch\'s Domain',desc:'Wherever the Frost Monarch walks, perpetual blizzard follows. His battlefield domain is a killing field — freezing the ground, sapping mana, and slowing reflexes while ice dragon legions sweep overhead.'},
+  {icon:'🌑',title:'The Shadow Realm',desc:'The dimension where Jinwoo\'s shadow soldiers slumber between summons — an infinite void of absolute darkness. Bellion maintained this realm for millennia before Jinwoo arrived to claim his inheritance.'},
+  {icon:'⚡',title:'Thomas Andre vs Jinwoo',desc:'The most anticipated fight of the series between human combatants. Thomas deploying his Collapse ability — and Jinwoo walking through it like a man walking through rain.'},
+  {icon:'🌏',title:'The Final Invasion — Global Scale',desc:'When the Monarchs launched their full-scale invasion, battles erupted simultaneously on every continent. City skylines burned. Mountain ranges were remade.'},
+  {icon:'🔄',title:'The Timeline Reset',desc:'Jinwoo\'s ultimate sacrifice — choosing to reset everything to a world without Gates, without Hunters, without the war that had defined his entire existence.'},
+];
+
+const FACTS=[
+  {text:'<strong>The original web novel</strong> was written and published by Chugong on KakaoPage starting in 2016. The full title is "나 혼자만 레벨업" — often translated as "Only I Level Up." It ran for 270 chapters plus 3 side stories.'},
+  {text:'<strong>Chugong planned the entire ending</strong> before serialization began — the timeline reset, the final battle, and Jinwoo\'s sacrifice were all plotted in advance, giving the story structural cohesion rare in serialized web fiction.'},
+  {text:'<strong>The manhwa artist Dubu</strong> (real name Kim Sang-ryul) of REDICE STUDIO passed away in July 2022 at age 37 due to a cerebral hemorrhage. His art style is widely credited with making Solo Leveling a global visual phenomenon.'},
+  {text:'<strong>A-1 Pictures</strong> — the anime studio behind Solo Leveling — is also known for Sword Art Online, Fairy Tail, Anohana, and Kaguya-sama. Their adaptation\'s fluid action sequences and use of 3D shadow effects were widely praised.'},
+  {text:'The opening theme <strong>"LEveL"</strong> by SawanoHiroyuki[nZk] debuted as one of the most-streamed anime openings worldwide in 2024, topping multiple music platform charts simultaneously.'},
+  {text:'<strong>Sung Jinwoo\'s command "Arise"</strong> (일어나) became one of the most recognizable phrases in modern manhwa culture — inspiring merchandise, tattoos, cosplay, and countless meme formats globally.'},
+  {text:'<strong>The Jeju Island arc</strong> is widely considered the narrative peak of the manhwa — it was the first moment readers understood Jinwoo had transcended the limits of human combat entirely.'},
+  {text:'<strong>Yoo Jinho</strong> — Jinwoo\'s best friend and Ahjin Guild co-founder — is one of the most beloved supporting characters precisely because his loyalty to Jinwoo is completely unrelated to the pursuit of power.'},
+  {text:'<strong>The System\'s daily quest requirements</strong> — 100 push-ups, 100 sit-ups, 100 squats, and a 10km run — were a deliberate reference to the workout regimen of One Punch Man\'s Saitama, acknowledged by Chugong as a tribute.'},
+  {text:'<strong>Cha Hae-In</strong> is uniquely able to sense mana signatures — she found most hunters\' mana unpleasant or foul-smelling. Jinwoo\'s was the only one she found pleasant, making her initial interest in him both supernatural and personal.'},
+  {text:'<strong>The Absolute Being\'s absence</strong> from the narrative is intentional — Chugong described the underlying philosophical question as "what do powerful beings do when the god who made them for war just stops showing up?"'},
+  {text:'<strong>Solo Leveling popularized the LitRPG manhwa genre</strong> globally — dozens of webtoons explicitly imitate its system-window interface, leveling mechanics, and weakest-to-strongest power fantasy structure.'},
+];
+
+/* ── RENDER: RANKS ── */
+(()=>{
+  const el=document.getElementById('ranksList');
+  RANKS.forEach(r=>{
+    const d=document.createElement('div');
+    d.className='ritem';
+    d.style.setProperty('--rc',r.color);
+    d.innerHTML=`<div class="rbadge" style="color:${r.color}">${r.badge}</div>
+    <div class="rinfo">
+      <div class="rtitle">${r.name}</div>
+      <div class="rsub">${r.sub}</div>
+      <div class="rdet">${r.detail}
+        <div class="rank-examples">${r.examples.map(e=>`<span class="rex">${e}</span>`).join('')}</div>
+      </div>
+    </div>
+    <div class="rchev">▶</div>`;
+    d.addEventListener('click',()=>d.classList.toggle('open'));
+    el.appendChild(d);
+  });
+})();
+
+/* ── SYSTEM TABS ── */
+function switchTab(btn,id){
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sys-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+/* ── RENDER: DUNGEONS ── */
+(()=>{
+  const el=document.getElementById('dungGrid');
+  DUNGEONS.forEach(d=>{
+    const c=document.createElement('div');
+    c.className='dcard';
+    c.innerHTML=`<div class="dcard-hd" style="background:${d.color}"></div>
+    <div class="dcard-body">
+      <div class="dgrade" style="color:${d.color}">${d.grade}</div>
+      <div class="dname">${d.name}</div>
+      <div class="drow"><span>Clearance</span><span>${d.clearance}</span></div>
+      <div class="drow"><span>Boss Class</span><span>${d.bossType}</span></div>
+      <div class="drow"><span>Rewards</span><span>${d.reward}</span></div>
+      <div class="dthreat"><strong style="color:${d.color};font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;">THREAT ASSESSMENT</strong><br>${d.threat}</div>
+    </div>`;
+    el.appendChild(c);
+  });
+})();
+
+/* ── RENDER: GUILDS ── */
+(()=>{
+  const el=document.getElementById('guildGrid');
+  GUILDS.forEach(g=>{
+    const c=document.createElement('div');
+    c.className='gc';
+    c.innerHTML=`<div class="gc-head">
+      <div class="gc-icon">${g.icon}</div>
+      <div><div class="gc-name">${g.name}</div><div class="gc-country">${g.country}</div></div>
+    </div>
+    <div class="gc-info">${g.info}</div>
+    <div class="gc-members">${g.members.map(m=>`<span class="gcm">${m}</span>`).join('')}</div>`;
+    el.appendChild(c);
+  });
+})();
+
+/* ── RENDER: SHADOWS ── */
+(()=>{
+  const el=document.getElementById('shadowGrid');
+  SHADOWS.forEach(s=>{
+    const c=document.createElement('div');
+    c.className='shcard';
+    c.innerHTML=`<div class="shbanner" style="background:linear-gradient(135deg,${s.color}22,${s.color}0a)">
+      <span style="filter:drop-shadow(0 0 12px ${s.color})">${s.icon}</span>
+    </div>
+    <div class="shbody">
+      <div class="shname">${s.name}</div>
+      <div class="shrole">${s.role}</div>
+      <div class="shgrade">${s.grade}</div>
+      <div class="shexp">
+        <strong style="color:var(--accent2);font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;">◈ ORIGIN</strong><br>
+        ${s.origin}<br><br>
+        <strong style="color:var(--accent2);font-family:var(--font-d);font-size:.55rem;letter-spacing:.1em;">◈ POWERS &amp; ROLE</strong><br>
+        ${s.powers}
+        <div class="sh-stat">${s.stats.map(st=>`<span class="shs">${st}</span>`).join('')}</div>
+      </div>
+      <div class="shtog">▾ Expand Full Profile</div>
+    </div>`;
+    c.querySelector('.shtog').addEventListener('click',()=>{
+      c.classList.toggle('open');
+      c.querySelector('.shtog').textContent=c.classList.contains('open')?'▴ Collapse Profile':'▾ Expand Full Profile';
+    });
+    el.appendChild(c);
+  });
+})();
+
+/* ── RENDER: MONARCHS & RULERS ── */
+(()=>{
+  function makeList(data,container){
+    const el=document.getElementById(container);
+    data.forEach(m=>{
+      const d=document.createElement('div');
+      d.className='eitem';
+      d.innerHTML=`<div class="eitem-hd">
+        <div class="eicon">${m.icon}</div>
+        <div><div class="ename">${m.name}</div><div class="erank">${m.rank}</div></div>
+        <div class="echev">▶</div>
+      </div>
+      <div class="edet">${m.det}</div>`;
+      d.querySelector('.eitem-hd').addEventListener('click',()=>d.classList.toggle('open'));
+      el.appendChild(d);
+    });
+  }
+  makeList(MONARCHS,'monarchList');
+  makeList(RULERS,'rulerList');
+})();
+
+/* ── RENDER: TIMELINE ── */
+(()=>{
+  const el=document.getElementById('tlList');
+  ARCS.forEach((a,i)=>{
+    const d=document.createElement('div');
+    d.className='titem'+(i===0?' active':'');
+    d.innerHTML=`<div class="tnode">${a.num}</div>
+    <div class="tcont">
+      <div class="tname">${a.name}</div>
+      <div class="tdet">${a.det}
+        <div class="tpills">${a.pills.map(p=>`<span class="tpill">${p}</span>`).join('')}</div>
+      </div>
+    </div>`;
+    d.addEventListener('click',()=>{
+      document.querySelectorAll('.titem').forEach(t=>t.classList.remove('active'));
+      d.classList.add('active');
+    });
+    el.appendChild(d);
+  });
+})();
+
+/* ── RENDER: BATTLES ── */
+(()=>{
+  const el=document.getElementById('batGrid');
+  BATTLES.forEach(b=>{
+    const d=document.createElement('div');
+    d.className='bcard';
+    d.innerHTML=`<div class="b-rating">BATTLE RECORD</div>
+    <div class="bicon">${b.icon}</div>
+    <div class="bvs">${b.vs}</div>
+    <div class="btitle">${b.label}</div>
+    <div class="bdesc">${b.desc}</div>
+    <div class="b-stats">
+      <div class="bstat"><div class="bstat-l">${b.stat1[0]}</div><div class="bstat-v">${b.stat1[1]}</div></div>
+      <div class="bstat"><div class="bstat-l">${b.stat2[0]}</div><div class="bstat-v">${b.stat2[1]}</div></div>
+      <div class="bstat"><div class="bstat-l">${b.stat3[0]}</div><div class="bstat-v">${b.stat3[1]}</div></div>
+      <div class="bstat"><div class="bstat-l">${b.stat4[0]}</div><div class="bstat-v">${b.stat4[1]}</div></div>
+    </div>
+    <div class="boutcome">⚡ ${b.outcome}</div>`;
+    el.appendChild(d);
+  });
+})();
+
+/* ── RENDER: STATS ── */
+(()=>{
+  const el=document.getElementById('statGrid');
+  STATS.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='stcard';
+    d.innerHTML=`<div class="sticon">${s.icon}</div>
+    <div class="stlabel">${s.label}</div>
+    <div class="stval" data-target="${s.val}">0</div>
+    <div class="stbw"><div class="stb" data-bar="${s.bar}"></div></div>
+    <div class="stdesc">${s.desc}</div>`;
+    el.appendChild(d);
+  });
+})();
+
+/* ── QUOTES ── */
+let qi=0,qt_timer;
+(()=>{
+  const dots=document.getElementById('qdots');
+  QUOTES.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='qdot'+(i===0?' active':'');
+    d.addEventListener('click',()=>{clearInterval(qt_timer);setQ(i);startQ();});
+    dots.appendChild(d);
+  });
+  setQ(0);startQ();
+})();
+function setQ(i){
+  qi=i;
+  const t=document.getElementById('qtext'),s=document.getElementById('qspeak');
+  t.classList.add('fade');s.style.opacity=0;
+  setTimeout(()=>{
+    t.textContent=QUOTES[i].text;s.textContent=QUOTES[i].speaker;
+    t.classList.remove('fade');s.style.opacity=1;
+    document.querySelectorAll('.qdot').forEach((d,j)=>d.classList.toggle('active',j===i));
+  },400);
+}
+function startQ(){qt_timer=setInterval(()=>setQ((qi+1)%QUOTES.length),5000);}
+
+/* ── GALLERY ── */
+(()=>{
+  const el=document.getElementById('galGrid');
+  GALLERY.forEach(g=>{
+    const d=document.createElement('div');
+    d.className='git';
+    d.innerHTML=`<div class="gimg">${g.icon}</div><div class="gcap">${g.title}</div>`;
+    d.addEventListener('click',()=>{
+      document.getElementById('lbimg').textContent=g.icon;
+      document.getElementById('lbtitle').textContent=g.title;
+      document.getElementById('lbdesc').textContent=g.desc;
+      document.getElementById('lbox').classList.add('open');
+    });
+    el.appendChild(d);
+  });
+})();
+function lbClose(e){if(e.target===document.getElementById('lbox'))document.getElementById('lbox').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lbox').classList.remove('open');});
+
+/* ── FACTS ── */
+(()=>{
+  const el=document.getElementById('factsGrid');
+  FACTS.forEach((f,i)=>{
+    const d=document.createElement('div');
+    d.className='fcard';
+    d.innerHTML=`<div class="fnum">${String(i+1).padStart(2,'0')}</div><div class="ftext">${f.text}</div>`;
+    el.appendChild(d);
+  });
+})();
+
+/* ── PARTICLES ── */
+(()=>{
+  const cv=document.getElementById('cvs'),ctx=cv.getContext('2d');
+  let W,H,pts=[];
+  function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+  window.addEventListener('resize',rsz);rsz();
+  function mk(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.1+.25,a:Math.random()*.45+.08};}
+  for(let i=0;i<140;i++)pts.push(mk());
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(168,85,247,${p.a})`;ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<110){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(124,58,237,${.11*(1-dist/110)})`;ctx.lineWidth=.5;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── INTERSECTION OBSERVER ── */
+let statsRan=false;
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      if(e.target.closest('#stats')&&!statsRan)animStats();
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+function animStats(){
+  statsRan=true;
+  document.querySelectorAll('.stval').forEach(el=>{
+    const target=parseInt(el.dataset.target),start=Date.now(),dur=1700;
+    function tick(){
+      const p=Math.min((Date.now()-start)/dur,1),ease=1-Math.pow(1-p,3),val=Math.round(ease*target);
+      el.textContent=val>=1000?val.toLocaleString():val;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    tick();
+  });
+  document.querySelectorAll('.stb').forEach(el=>{el.style.width=el.dataset.bar+'%';});
+}
+
+/* ── SCROLL TOP ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('stbtn').classList.toggle('vis',window.scrollY>400);
+});
+
+/* ── THEME ── */
+function setTheme(t,btn){
+  document.body.classList.remove('theme-purple','theme-blue');
+  if(t==='purple')document.body.classList.add('theme-purple');
+  if(t==='blue')document.body.classList.add('theme-blue');
+  document.querySelectorAll('.t-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
