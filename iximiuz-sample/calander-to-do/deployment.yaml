@@ -105,5 +105,5 @@ spec:
       protocol: TCP
       port: 80                         # ClusterIP port
       targetPort: 80                   # container port
-      nodePort: 30080                  # external port on every node (30000-32767)
+      nodePort: 31777                  # external port on every node (30000-32767)
                                        # remove this line if type=LoadBalancer
