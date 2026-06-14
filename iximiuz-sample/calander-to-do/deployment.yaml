@@ -11,7 +11,7 @@ metadata:
   labels:
     app: calendar-todo-app
 spec:
-  replicas: 3                          # scale as needed
+  replicas: 3
   selector:
     matchLabels:
       app: calendar-todo-app
@@ -20,44 +20,55 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
+
   template:
     metadata:
       labels:
         app: calendar-todo-app
+
     spec:
-      # ── Volumes ──────────────────────────────────────────────
+      # Allow scheduling on nodes tainted with:
+      # environment=production:NoSchedule
+      tolerations:
+        - key: "environment"
+          operator: "Equal"
+          value: "production"
+          effect: "NoSchedule"
+
+      # Optional: Uncomment if you want pods to run ONLY on production nodes
+      # nodeSelector:
+      #   environment: production
+
       volumes:
         - name: html-volume
           configMap:
-            name: calendar-todo-app-html    # must match ConfigMap metadata.name
+            name: calendar-todo-app-html
             items:
-              - key: index.html        # key inside the ConfigMap
-                path: index.html       # filename inside the container mount
+              - key: index.html
+                path: index.html
 
-      # ── Containers ───────────────────────────────────────────
       containers:
         - name: nginx
-          image: nginx:1.27-alpine     # lightweight nginx image
-          ports:
-            - containerPort: 80
-              name: http
+          image: nginx:1.27-alpine
 
-          # Mount the ConfigMap volume over nginx's default html dir
+          ports:
+            - name: http
+              containerPort: 80
+
           volumeMounts:
             - name: html-volume
               mountPath: /usr/share/nginx/html/index.html
-              subPath: index.html      # mount only this file, not the whole dir
+              subPath: index.html
 
-          # Resource limits — tune for your cluster
+          # Guaranteed QoS (requests = limits)
           resources:
             requests:
-              cpu: "50m"
-              memory: "64Mi"
+              cpu: "200m"
+              memory: "256Mi"
             limits:
               cpu: "200m"
-              memory: "128Mi"
+              memory: "256Mi"
 
-          # Health checks
           livenessProbe:
             httpGet:
               path: /
