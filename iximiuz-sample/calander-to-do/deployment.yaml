@@ -1,0 +1,99 @@
+# ─────────────────────────────────────────────────────────────
+#  Deployment — calendar-todo-app
+#
+#  Serves index.html (from ConfigMap) via nginx.
+#  The ConfigMap is mounted at /usr/share/nginx/html/index.html
+# ─────────────────────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendar-todo-app
+  namespace: default
+  labels:
+    app: calendar-todo-app
+spec:
+  replicas: 2                          # scale as needed
+  selector:
+    matchLabels:
+      app: calendar-todo-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: calendar-todo-app
+    spec:
+      # ── Volumes ──────────────────────────────────────────────
+      volumes:
+        - name: html-volume
+          configMap:
+            name: calendar-todo-app-html    # must match ConfigMap metadata.name
+            items:
+              - key: index.html        # key inside the ConfigMap
+                path: index.html       # filename inside the container mount
+
+      # ── Containers ───────────────────────────────────────────
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine     # lightweight nginx image
+          ports:
+            - containerPort: 80
+              name: http
+
+          # Mount the ConfigMap volume over nginx's default html dir
+          volumeMounts:
+            - name: html-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html      # mount only this file, not the whole dir
+
+          # Resource limits — tune for your cluster
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+
+          # Health checks
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 15
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 10
+---
+# ─────────────────────────────────────────────────────────────
+#  Service — calendar-todo-app-svc
+#
+#  Change type to LoadBalancer if you are on a cloud provider
+#  (EKS, GKE, AKS) and want a public IP automatically.
+#  Use NodePort for bare-metal / Minikube / Kind.
+# ─────────────────────────────────────────────────────────────
+apiVersion: v1
+kind: Service
+metadata:
+  name: calendar-todo-app-svc
+  labels:
+    app: calendar-todo-app
+spec:
+  type: NodePort                       # ← change to LoadBalancer for cloud
+  selector:
+    app: calendar-todo-app                  # must match Deployment pod labels
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80                         # ClusterIP port
+      targetPort: 80                   # container port
+      nodePort: 30080                  # external port on every node (30000-32767)
+                                       # remove this line if type=LoadBalancer
